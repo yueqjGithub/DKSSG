@@ -24,6 +24,9 @@ type Props = {
   showReserve: boolean
   shareLink: FixedContentItem<FixedTypeEnum.IMAGES>['content']
   downBtnList: FixedContentItem<FixedTypeEnum.IMAGES>['content']
+  videoSource: {
+    [key: string]: FixedContentItem<FixedTypeEnum.VIDEO>['content']
+  }
   reserves: any
   fbAndInvite: {
     fb: any[]
@@ -33,7 +36,7 @@ type Props = {
   banners: FixedContentItem<FixedTypeEnum.IMAGES>
 }
 
-const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnList, reserves, fbAndInvite, banners, roleList }) => {
+const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnList, reserves, fbAndInvite, banners, roleList, videoSource }) => {
   const { state, dispatch } = useContext(Context)
   const { imgPrefix } = state
   const touchRef = useRef<any>()
@@ -209,7 +212,7 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
           showPrize && <PrizeModal closeHandler={() => setShowPrize(false)}></PrizeModal>
         }
         <div ref={touchRef} className={styles.pageContainer}>
-          <SectionOne count={count} showReserve={showReserve} downBtnList={downBtnList} loginHandler={getCode}></SectionOne>
+          <SectionOne count={count} showReserve={showReserve} downBtnList={downBtnList} loginHandler={getCode} video={videoSource.video[0]}></SectionOne>
           {
             showReserve && (
               <>
@@ -280,6 +283,10 @@ export const getStaticProps: GetStaticProps = async () => {
       richText: getTarget('richText', item).content
     }
   })
+  const { data: videoRes } = await httpGet(urls.queryVideoSource)
+  const videoResult = {
+    video: getTarget('video', videoRes.data).content
+  }
   if (showReserve) {
     // 第二屏接口
     const { data: reserveOne } = await httpGet(urls.getReserveOne)
@@ -348,6 +355,7 @@ export const getStaticProps: GetStaticProps = async () => {
         topData,
         banners: bannerList,
         roleList,
+        videoSource: videoResult,
         showReserve,
         reserves,
         fbAndInvite
@@ -361,6 +369,7 @@ export const getStaticProps: GetStaticProps = async () => {
         topData,
         banners: bannerList,
         roleList,
+        videoSource: videoResult,
         showReserve
       }
     }

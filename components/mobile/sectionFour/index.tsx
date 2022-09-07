@@ -8,7 +8,6 @@ const SectionFour = ({ banners }: Props) => {
   const { state } = useContext(Context)
   const { imgPrefix } = state
   const { content: bannerList } = banners
-  console.log(bannerList)
   const [cur, setCur] = useState<number>(0)
   const changeHandler = (index: number) => {
     setCur(index)
