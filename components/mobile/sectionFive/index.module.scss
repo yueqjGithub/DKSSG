@@ -1,0 +1,110 @@
+.container{
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  // top: 0;
+  scroll-snap-align: center;
+  .avatorContainer {
+    position: absolute;
+    top: .9rem;
+    right: .13rem;
+    z-index: 18;
+    .avatarItem {
+      width: 0.7rem;
+      img {
+        width: 100%;
+      }
+      &+.avatarItem{
+        margin-top: .1rem;
+      }
+    }
+  }
+  .roleContainer {
+    width: 100vw;
+    height: 100vh;
+    background-position: center top;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 6;
+    &.show {
+      display: block;
+    }
+    &.hide {
+      display: none;
+    }
+  }
+  .shadowModal {
+    width: 100%;
+    height: 45vh;
+    background: linear-gradient(to bottom, transparent 0%, transparent 20%, rgba(0, 0, 0, 0.9) 100%);
+    position: absolute;
+    z-index: 7;
+    bottom: 0;
+  }
+  .descContainer {
+    position: absolute;
+    bottom: 10vh;
+    left: 0;
+    z-index: 17;
+    .descTitImg {
+      width: 48vw;
+      margin-left: 10vw;
+    }
+    .descSplit {
+      width: 100vw;
+      transform: translateX(-5vw);
+    }
+    .wordShow {
+      position: absolute;
+      top: 0;
+      left: 14vw;
+      .wordContainer {
+        &.show {
+          display: block;
+        }
+        &.hide {
+          display: none;
+        }
+        .title {
+          font-size: .4rem;
+          font-weight: 600;
+          color: #FFFFFF;
+          margin-top: 18vw;
+        }
+        .keyContainer {
+          background: #fff;
+          padding: .05rem .15rem;
+          font-size: .14rem;
+          border-radius: 0.04rem;
+          color: #000;
+          margin-top: 3vw;
+          width: max-content;
+          font-weight: 600;
+          .cusDot {
+            width: .05rem;
+            height: .05rem;
+            border-radius: 50%;
+            background: #000;
+            display: inline-block;
+            margin: 0 .1rem;
+          }
+        }
+        .desc {
+          max-width: 60vw;
+          font-size: 0.13rem;
+          color: #fff;
+          white-space: pre-wrap;
+          word-break: break-all;
+          margin-top: 8vw;
+          line-height: 1.4;
+        }
+        .qShow {
+          width: 42vw;
+          margin-top: 0.13rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,178 @@
+.container{
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/pc/sec3Bg.png');
+  background-size: cover;
+  position: relative;
+  padding-top: 13%;
+  .ty {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    width: 22%;
+  }
+  .bgImg {
+    width: 100%;
+    height: auto;
+  }
+  .contContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .ruleTips {
+    position: absolute;
+    font-size: .36rem;
+    color: #fff;
+    img {
+      width: .36rem;
+      margin-left: .1rem;
+    }
+    top: 0;
+    transform: translateY(-.8rem);
+  }
+  .lContainer{
+    position: relative;
+    z-index: 1;
+    width: 6.25rem;
+    .leftItem {
+      p {
+        font-size: .17rem;
+        color: #151416;
+        font-weight: bold;
+        font-family: 'SourceHanSansSC-Medium';
+        &+p {
+          font-size: .19rem;
+          color: #D0751C;
+          margin-left: .05rem;
+        }
+        &.titP {
+          margin-top: .8rem;
+          &+div {
+            margin-top: .05rem;
+          }
+        }
+      }
+      &+.leftItem{
+        margin-left: 0.15rem;
+      }
+      .fbPrizeItem {
+        img {
+          width: .4rem;
+          margin-bottom: .16rem;
+        }
+        span {
+          font-size: .14rem;
+          color: #433B38;
+          font-weight: bold;
+          width: 0.9rem;
+          text-align: center;
+          white-space: pre-wrap;
+        }
+        &.first {
+          margin-top: 0.5rem;
+          &+div {
+            margin-top: 0.35rem;
+            .fbPrizeItem {
+              &+.fbPrizeItem{
+                margin-left: .1rem;
+              }
+            }
+          }
+        }
+      }
+      .hBtn {
+        width: 2.46rem;
+        margin-top: .45rem;
+      }
+    }
+  }
+  .cContainer{
+    width: 1.62rem;
+    margin: 0 -0.4rem;
+    position: relative;
+    z-index: 2;
+  }
+  .rContainer{
+    width: 6.25rem;
+    position: relative;
+    z-index: 1;
+    .contContainer{
+      padding: 0.85rem .5rem 0;
+      .inviteBtn {
+        width: 100%;
+        margin-top: .1rem;
+      }
+      .rPrizeItem {
+        &:nth-child(2) {
+          margin: 0 0.2rem;
+        }
+        p {
+          font-size: .24rem;
+          color: #151416;
+          font-weight: bold;
+          font-family: 'SourceHanSansSC-Heavy';
+          &+p {
+            font-size: .26rem;
+            color: #D0751C;
+            margin-left: .05rem;
+          }
+        }
+        .rPrize {
+          margin-top: 0.55rem;
+          &+.rPrize {
+            margin-top: 0.15rem;
+          }
+          img {
+            width: .4rem;
+            margin-bottom: .14rem;
+          }
+          span {
+            font-size: .14rem;
+            color: #433B38;
+            font-weight: bold;
+            width: 0.9rem;
+            text-align: center;
+            white-space: pre-wrap;
+          }
+        }
+      }
+    }
+  }
+  .ruleContainer {
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #333333;
+    .ruleContent {
+      // background-image: url('/pc/sec3/rule_bg.png');
+      background-size: 100% 100%;
+      padding: 0 .51rem .84rem;
+      .ruleTit {
+        font-family: 'CJNgaiPRCHK-Bold';
+        font-weight: bold;
+        font-size: .6rem;
+        color: #000;
+        margin-top: .71rem;
+      }
+      .ruleDetail {
+        width: 9.87rem;
+        font-size: .24rem;
+        text-indent: .48rem;
+        white-space: pre-wrap;
+        text-align: left;
+        word-break: break-all;
+      }
+    }
+    .closeBtn {
+      width: 3.76rem;
+      margin-top: .3rem;
+    }
+  }
+}

@@ -1,0 +1,102 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  // background-image: url('/pc/sec4/sec4Bg.png');
+  background-size: 100% 100%;
+  position: relative;
+  .bannerContainer {
+    width: 60%;
+    margin-top: 10vh;
+    overflow: hidden;
+    position: relative;
+    // 控制層
+    .control {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 6;
+      padding: 0 5%;
+      .lCtrl{
+        width: 5%;
+        cursor: pointer;
+        img {
+          width: 100%;
+        }
+      }
+      .rCtrl{
+        width: 5%;
+        transform: rotate(180deg);
+        transform-origin: center;
+        cursor: pointer;
+        img {
+          width: 100%;
+        }
+      }
+      // 
+    }
+    .bannerItem {
+      width: 70%;
+      transition: all 0.5s linear;
+      filter: brightness(60%);
+      img {
+        width: 100%;
+      }
+      &.hide {
+        display: none;
+      }
+      &.show {
+        display: block;
+      }
+      &.cur {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        z-index: 4;
+        transform: translate(-50%, 0);
+        filter: brightness(100%);
+      }
+      &.prev {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        z-index: 3;
+        transform: translate(-76%, 0) scale(90%);
+      }
+      &.next {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        z-index: 3;
+        transform: translate(-24%, 0) scale(90%);
+      }
+    }
+  }
+  .dotContainer {
+    margin-top: .5rem;
+    .dotItem{
+      width: .28rem;
+      height: .28rem;
+      text-align: center;
+      vertical-align: middle;
+      opacity: 0.5;
+      border-width: 0.01rem;
+      border-style: solid;
+      border-color: transparent;
+      border-radius: 50%;
+      margin: .05rem;
+      cursor: pointer;
+      div {
+        width: .17rem;
+        height: .17rem;
+        background-color: #F6AC63;
+        border-radius: 50%;
+      }
+      &.active{
+        opacity: 1;
+        border-color: #F6AC63;
+      }
+    }
+  }
+}

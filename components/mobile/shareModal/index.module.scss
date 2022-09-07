@@ -1,0 +1,96 @@
+.modal{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 7;
+  background: #333333;
+  .contModal{
+    // background-image: url('/pc/sec3/rule_bg.png');
+    background-size: 100% 100%;
+    padding: 5vw 5vw 18vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .title{
+      font-size: 0.3rem;
+      color: #000;
+      font-weight: bold;
+      text-align: center;
+      width: 2.5rem;
+    }
+    .cusSplit{
+      width: 2.5rem;
+      height: 0;
+      border-top: 1px solid #151416;
+      opacity: 0.3;
+      margin-top: .15rem;
+      margin-bottom: .05rem;
+    }
+    .copyContainer{
+      width: 2.5rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0.1rem 0;
+      .cusInput{
+        background: #F6AC63;
+        border: none;
+        border-radius: 2px;
+        outline: none;
+        /* flex: 1 1; */
+        margin-right: 0.15rem;
+        align-self: stretch;
+        padding: 0 0.2rem;
+        font-size: .14rem;
+        font-weight: bold;
+        height: 0.35rem;
+        width: calc(100% - 0.8rem);
+      }
+      .copyBtn {
+        font-size: 0.16rem;
+        color: #000;
+        font-weight: bold;
+        background: #F6AC63;
+        padding: 0.05rem 0.15rem;
+        width: .9rem;
+        text-align: center;
+        border-radius: 5px;
+        border-bottom-right-radius: 10px;
+        border-top-left-radius: 10px;
+        box-shadow: 3px 3px 0px 0px rgb(0 0 0 / 40%);
+      }
+    }
+    .detailContainer {
+      padding: .05rem;
+      background: #59736A;
+      border-radius: 0.04rem;
+      margin: 0.2rem 0;
+      .detailInner {
+        border-radius: 0.08rem;
+        padding: 5vw;
+        background-color: #FCF4EE;
+        .detail {
+          width: 70vw;
+          font-size: .14rem;
+          font-weight: bold;
+          white-space: pre-wrap;
+          text-align: left;
+          word-break: break-all;
+        }
+      }
+    }
+
+  }
+  .closeBtn {
+    width: 50vw;
+    margin-top: 0.5rem;
+  }
+}

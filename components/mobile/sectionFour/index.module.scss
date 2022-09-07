@@ -1,0 +1,66 @@
+.container{
+  width: 100vw;
+  height: 100vh;
+  background-size: 100% 100%;
+  overflow-x: hidden;
+  position: relative;
+  // top: 0;
+  scroll-snap-align: center;
+  .dotContainer {
+    padding: .3rem 0;
+    .dotOut {
+      .arrow {
+        width: .3rem;
+        transform-origin: center;
+        &:active{
+          transform: scale(0.95);
+        }
+        &.right{
+          transform: rotate(180deg);
+        }
+      }
+      .dotUl {
+        margin: 0 0.5rem;
+        .dotItem {
+          width: .18rem;
+          height: .18rem;
+          border-color: transparent;
+          border-width: 1px;
+          border-style: solid;
+          border-radius: 50%;
+          div {
+            width: .1rem;
+            height: .1rem;
+            background: #fff;
+            border-radius: 50%;
+          }
+          opacity: 0.7;
+          &.active {
+            opacity: 1;
+            border-color: #fff;
+          }
+        }
+      }
+    }
+  }
+  .tv {
+    width: 100%;
+    background-size: cover;
+    aspect-ratio: 819/465;
+  }
+  .tvList {
+    width: 100%;
+    .tvItem {
+      width: 50%;
+      aspect-ratio: 819/465;
+      background-size: cover;
+      filter: brightness(60%);
+      &.active{
+        filter: brightness(100%);
+      }
+      &:active{
+        transform: scale(0.95);
+      }
+    }
+  }
+}

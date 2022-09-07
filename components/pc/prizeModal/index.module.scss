@@ -1,0 +1,109 @@
+.modal{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #333333;
+  z-index: 7;
+  .contModal{
+    // background-image: url('/pc/sec3/rule_bg.png');
+    background-size: 100% 100%;
+    padding: .51rem .84rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 11.5rem;
+    .title{
+      font-size: .6rem;
+      color: #000;
+      font-weight: bold;
+    }
+    .copyContainer{
+      width: 100%;
+      margin: .2rem 0;
+      .copyItem {
+        width: 48%;
+        font-size: .2rem;
+        font-weight: bold;
+        color: #424242;
+        &.wait{
+          .cusInput{
+            filter: grayscale(70%) brightness(50%);
+          }
+          .copyBtn{
+            filter: grayscale(70%) brightness(50%);
+            cursor: not-allowed;
+          }
+        }
+        .typeName {
+          width: 1.2rem;
+          text-align: right;
+        }
+        .cusInput{
+          background: #F6AC63;
+          border-radius: 8px;
+          outline: none;
+          margin: .3rem;
+          text-align: center;
+          padding: .08rem;
+          width: 2rem;
+        }
+        .copyBtn {
+          font-size: 0.16rem;
+          color: #000;
+          font-weight: bold;
+          background: #F6AC63;
+          padding: 0.05rem 0.15rem;
+          width: .8rem;
+          text-align: center;
+          border-radius: 3px;
+          border-bottom-right-radius: 10px;
+          border-top-left-radius: 10px;
+          box-shadow: 3px 3px 0px 0px rgb(0 0 0 / 40%);
+          white-space: nowrap;
+          cursor: pointer;
+        }
+      }
+    }
+    .detail {
+      width: 5.87rem;
+      font-size: .18rem;
+      font-weight: bold;
+      white-space: pre-wrap;
+      text-align: left;
+      word-break: break-all;
+    }
+    .rulesContainer {
+      width: 100%;
+      padding: 0.07rem 0.2rem 0.07rem 0.07rem;
+      border-radius: 0.05rem;
+      background: #58736A;
+      margin-top: 0.3rem;
+      .rulesOut{
+        width: 100%;
+        border-radius: .05rem;
+        background: #FCF4EE;
+        padding: .1rem .2rem .08rem;
+        color: #424242;
+        font-size: .20rem;
+      }
+    }
+    .tips{
+      font-size: .15rem;
+      color: #424242;
+      width: 100%;
+      text-align: right;
+      margin: .1rem 0;
+    }
+  }
+  .closeBtn {
+    width: 15%;
+    margin-top: .4rem;
+  }
+}

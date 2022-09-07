@@ -1,0 +1,103 @@
+.pageContainer {
+  width: 100vw;
+  // height: 100vh;
+  // overflow-y: scroll;
+  // scroll-behavior: smooth;
+  // 整屏滚动
+  position: relative;
+  top: 0;
+  transition: top .5s ease-in;
+  .footer {
+    width: 100%;
+    height: 35vh;
+    background: #000;
+    position: relative;
+    padding: 0.9rem 0.5rem 0.5rem;
+    .followTit {
+      font-size: 0.16rem;
+      margin-bottom: 0.27rem;
+      color: #fff;
+    }
+    .btmLogo {
+      position: absolute;
+      bottom: 0rem;
+      right: 0rem;
+      width: 1.23rem;
+    }
+    .btmEmail {
+      margin-top: 0.2rem;
+      margin-bottom: 0.2rem;
+      color: #a9a9a9;
+      font-size: 12px;
+    }
+    .btmSplitLine {
+        width: 100%;
+        height: 0.02rem;
+        opacity: 0.3;
+        background: #fff;
+        margin: 0.2rem 0 0.5rem;
+    }
+    .shareList {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      .shareItem {
+          &:not(:first-child) {
+              margin-left: 0.36rem;
+          }
+          width: 0.27rem;
+          height: 0.23rem;
+          cursor: pointer;
+          position: relative;
+          &:hover {
+              .shareIcon {
+                  filter: none;
+              }
+          }
+          .shareIcon {
+              width: 100%;
+              filter: grayscale(80%) brightness(0.5);
+          }
+          .sharePop {
+              display: none;
+              position: absolute;
+              top: 0;
+              left: 50%;
+              transform: translate(-50%, -103%);
+              width: 90px;
+              height: auto;
+          }
+      }
+    }
+    .introduction {
+        position: relative;
+        font-size: 12px;
+        color: #a9a9a9;
+        p {
+            margin: 0 0 10px 0;
+        }
+
+        a {
+            display: block;
+            margin: 0 0 10px 0;
+            color: #a9a9a9;
+            text-decoration: none;
+        }
+    }
+    .introEn {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        div {
+            color: #a9a9a9;
+            font-size: 0.12rem;
+            &:not(:first-child) {
+                margin-left: 0.5rem;
+                cursor: pointer;
+            }
+        }
+    }
+  }
+}

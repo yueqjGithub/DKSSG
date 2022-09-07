@@ -1,0 +1,98 @@
+.sideShareContainer {
+  position: fixed;
+  left: 0;
+  top: 1.04rem;
+  transition: left .3s linear;
+  .bgImg {
+    width: 1.36rem;
+    position: relative;
+    .shareContentContainer {
+      // background-image: url('/pc/left_slid_bg.png');
+      background-size: 100% 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0.3rem 0.08rem 0.11rem 0.11rem;
+      .shareLinkIcon {
+        width: .78rem;
+        &+.shareLinkIcon{
+          margin-top: 0.07rem;
+        }
+      }
+      .donwBtn {
+        width: 1.07rem;
+        margin-bottom: .04rem;
+      }
+      .qrContainer{
+        width: 1.08rem
+      }
+      .qrTips {
+        font-size: 0.18rem;
+        font-family: 'Source Han Sans SC';
+        font-weight: bold;
+        color: #000000;
+      }
+    }
+  }
+  .expandBtn {
+    margin-top: .37rem;
+    width: .29rem;
+    transform: translateX(-1px);
+  }
+}
+.logout {
+  position: fixed;
+  right: .55rem;
+  top: 0.6rem;
+  width: 1rem
+}
+.rightSide {
+  position: fixed;
+  right: .55rem;
+  top: 2.37rem;
+  z-index: 11;
+  .tabItem {
+    width: 1.35rem;
+    height: .3rem;
+    line-height: .3rem;
+    text-align: right;
+    padding-right: .19rem;
+    font-weight: bold;
+    color: #fff;
+    font-size: .2rem;
+    font-family: 'Source Han Sans SC';
+    position: relative;
+    .activeBg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      background: #fff;
+      z-index: 0;
+      transition: width ease-in-out .4s;
+    }
+    span {
+      position: relative;
+      z-index: 1;
+    }
+    &+.tabItem{
+      margin-top: .15rem;
+    }
+    &.tabActive {
+      color: #000;
+      .activeBg {
+        width: 1.35rem;
+        height: .3rem;
+      }
+    }
+    &:hover{
+      color: #000;
+      .activeBg {
+        width: 1.35rem;
+        height: .3rem;
+      }
+    }
+  }
+}

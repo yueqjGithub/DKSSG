@@ -1,0 +1,158 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  // background-image: url('/pc/sec2Bg.png');
+  background-size: cover;
+  position: relative;
+  .contentContainer {
+    position: absolute;
+    width: 50%;
+    top: 24%;
+    left: 33%;
+    .updateTip{
+      color: #F6AC63;
+      font-size: .14rem;
+      width: 100%;
+      text-align: right;
+      margin-top: .05rem;
+    }
+    .countShow {
+      font-size: .35rem;
+      font-family: 'Source Han Sans SC';
+      color: #fff;
+      width: 100%;
+      span {
+        &:nth-of-type(1) {
+          margin-right: .3rem;
+        }
+        &:nth-of-type(2) {
+          margin-right: .3rem;
+          color: #F6AC63;
+        }
+      }
+    }
+    .tips{
+      font-size: .15rem;
+      color: rgba(255,255,255,0.8);
+      margin-top: .1rem;
+      font-family: 'SourceHanSansSC-Regular';
+    }
+    .logBtnContainer {
+      margin-top: .3rem;
+      img {
+        width: 28%;
+        &.greyBtn {
+          filter: grayscale(100%);
+        }
+      }
+    }
+  }
+}
+
+.prizeItemContainer{
+  &.waitDeg {
+    .degreeLine {
+      filter: grayscale(100%);
+    }
+    .btmOut {
+      filter: grayscale(100%);
+    }
+  }
+  &.first {
+    .degreeLine{
+      border-left: 4px solid #000;
+    }
+  }
+  &.last {
+    .degreeLine {
+      border-right: 4px solid #000;
+    }
+  }
+  .degreeLine {
+    width: 100%;
+    height: 0.14rem;
+    background: #F6AC63;
+    border-top: 4px solid #000;
+    border-bottom: 4px solid #000;
+    margin: .36rem 0;
+    position: relative;
+    .degreeSquare {
+      width: .24rem;
+      height: .24rem;
+      background: #F6AC63;
+      border: 4px solid #000;
+      border-radius: 0.02rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  }
+  .btmOut{
+    position: relative;
+    width: 100%;
+    padding: 0 .05rem;
+    &:hover {
+      .sand {
+        z-index: 4;
+      }
+    }
+    .sand {
+      width: 0;
+      height: 0;
+      border-bottom: 15px solid #B8AAA3;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-top: 15px solid transparent;
+      position: absolute;
+      top:0;
+      left: 50%;
+      transform: translate(-50%, -69%);
+      z-index: 1;
+    }
+    .degBg{
+      position: relative;
+      z-index: 2;
+    }
+    .reserveOut {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: 3;
+      top: 0;
+      left: 0;
+      color: #433B38;
+      font-weight: bold;
+      font-size: .17rem;
+      font-family: 'Source Han Sans SC';
+      p,img {
+        position: absolute;
+      }
+      p:nth-of-type(1){
+        top: 7%;
+        margin-right: 0.18rem;
+      }
+      p:nth-of-type(2){
+        font-size: .3rem;
+        margin-right: 0.18rem;
+        top: 12%;
+      }
+      img:nth-of-type(1){
+        margin-right: 0.15rem;
+        width: 26%;
+        top: 27%;
+      }
+      img:nth-of-type(2){
+        margin-right: 0.15rem;
+        width: 26%;
+        top: 47%;
+      }
+      p:nth-of-type(3) {
+        top: 85%;
+      }
+      p:nth-of-type(4){
+        top: 90%;
+      }
+    }
+  }
+}

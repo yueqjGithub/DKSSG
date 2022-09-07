@@ -1,0 +1,68 @@
+.modal{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 7;
+  .contModal{
+    // background-image: url('/pc/sec3/rule_bg.png');
+    background-size: 100% 100%;
+    padding: .51rem .84rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .title{
+      font-size: .3rem;
+      color: #000;
+      font-weight: bold;
+    }
+    .copyContainer{
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin: .2rem 0;
+      .cusInput{
+        background: #D2C8C1;
+        border: 2px solid #000;
+        border-radius: 2px;
+        outline: none;
+        flex: 1;
+        margin-right: .3rem;
+        align-self: stretch;
+      }
+      .copyBtn {
+        font-size: 0.16rem;
+        color: #000;
+        font-weight: bold;
+        background: #F6AC63;
+        padding: 0.05rem 0.15rem;
+        width: .9rem;
+        text-align: center;
+        border-radius: 5px;
+        border-bottom-right-radius: 10px;
+        border-top-left-radius: 10px;
+        box-shadow: 3px 3px 0px 0px rgb(0 0 0 / 40%);
+      }
+    }
+    .detail {
+      width: 5.87rem;
+      font-size: .18rem;
+      font-weight: bold;
+      white-space: pre-wrap;
+      text-align: left;
+      word-break: break-all;
+    }
+    .closeBtn {
+      width: 50%;
+      margin-top: .2rem;
+    }
+  }
+}

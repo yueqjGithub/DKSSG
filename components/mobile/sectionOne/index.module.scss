@@ -1,0 +1,28 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-size: 100% 100%;
+  overflow-x: hidden;
+  position: relative;
+  // top: 0;
+  scroll-snap-align: center;
+  .bgPerson {
+    width: 100%;
+  }
+  .contentShow{
+    position: absolute;
+    bottom: 4%;
+    .countShow {
+      font-size: .27rem;
+      color: #fff;
+      span {
+        color: #F6AC63;
+        margin: 0.13rem;
+      }
+    }
+    img {
+      width: 60%;
+      margin-top: .1rem;
+    }
+  }
+}

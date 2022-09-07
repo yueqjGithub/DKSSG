@@ -1,0 +1,84 @@
+.container{
+  width: 100vw;
+  height: 100vh;
+  // background-image: url('/pc/sec1Bg.png');
+  background-size: 100% 100%;
+  text-align: center;
+  position: relative;
+  .roleContainer {
+    position: relative;
+    .roleImg {
+      height: 100vh;
+      aspect-ratio: 1263/1060;
+    }
+    .playContainer {
+      padding: 1px;
+      position: absolute;
+      width: 0.64rem;
+      right: 30%;
+      bottom: 33%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .flowModal{
+    height: 28%;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 35%,rgba(0,0,0,1) 100%);
+    position: absolute;
+    bottom: 0;
+    padding-bottom: .61rem;
+    img {
+      width: auto;
+      height: 7vh;
+      margin-right: 0.73rem;
+      &.greyBtn {
+        filter: grayscale(100%);
+      }
+    }
+  }
+}
+
+.videoFlowContainer{
+  z-index: 9;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: rgba(0,0,0,0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  .videoOut{
+    position: relative;
+    .vFlow{
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9;
+    }
+    .vPosition{
+      video{
+        position: relative;
+        z-index: 10;
+      }
+      .closeBtn{
+        position: absolute;
+        right: .08rem;
+        top: .08rem;
+        width: .3rem;
+        height: .3rem;
+        padding: .05rem;
+        border-radius: 50%;
+        background: rgba($color: #000000, $alpha: 0.4);
+        z-index: 11;
+        cursor: pointer;
+        img{
+          width: 100%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+.headerContainer{
+  width: 100%;
+  padding: .12rem .1rem .12rem .2rem;
+  background: #000;
+  position: fixed;
+  z-index: 11;
+  top: 0;
+  left: 0;
+  .leftSide{
+    img {
+      width: .37rem;
+      height: .37rem;
+      margin-right: .07rem;
+    }
+    .topName {
+      align-self: stretch;
+      p {
+        font-size: .17rem;
+        color: #fff;
+      }
+      span {
+        color: rgba(255,255,255,0.5);
+        font-size: .13rem;
+      }
+    }
+  }
+  .rightSide {
+    margin-left: .1rem;
+    flex: 1;
+    img {
+      width: 48%;
+      &+img{
+        margin-left: 3%;
+      }
+    }
+  }
+}
+
+.slideRight {
+  position: fixed;
+  z-index: 11;
+  right: 0;
+  transition: right .2s linear;
+  top: 18%;
+  .slideBg{
+    width: 30vw;
+    height: auto;
+  }
+  .slideArr{
+    position: absolute;
+    display: block;
+    width: 9vw;
+    top: 7%;
+    left: -9vw;
+    transform-origin: center;
+    &.dexpand{
+      transform: rotate(180deg);
+    }
+  }
+  .contContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    .shareLinkIcon {
+      width: 18vw;
+      &+.shareLinkIcon{
+        margin-top: 3vw;
+      }
+    }
+  }
+}

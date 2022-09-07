@@ -1,0 +1,31 @@
+.page-pc-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #000;
+}
+.m-page-container{
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  left: 0;
+  scroll-snap-type: y mandatory;
+}
+
+.hover-scale {
+  transition: transform .2s linear;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.click-scale {
+  &:active {
+    transform: scale(0.95);
+  }
+}
