@@ -34,7 +34,7 @@ const SectionFive = ({ roleList }: Props) => {
     })
   }, [roleList])
   return (
-    <div className={styles.container} style={{ backgroundImage: `url(${imgPrefix}/mobileImg/sec5BG.png)` }}>
+    <div className={styles.container} style={{ backgroundImage: `url(${imgPrefix}/mobileImg/sec5Bg.png)` }}>
       <div className={`${styles.avatorContainer} flex-col flex-jst-start flex-ali-center`}>
         {
           avatarList.map((item, idx) => {

@@ -60,7 +60,7 @@ const SectionThree = ({ fbAndInvite, inviteHandler }: Props) => {
   }
   return (
     <div className={`${styles.container} flex-col flex-jst-start flex-ali-center`}
-      style={{ backgroundImage: `url(${imgPrefix}/mobileImg/sec3Bg.png)` }}
+      style={{ backgroundImage: `url(${imgPrefix}/mobileImg/sec3bg.png)` }}
     >
       {/* rule */}
       {
