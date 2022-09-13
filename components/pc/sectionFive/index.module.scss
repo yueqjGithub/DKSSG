@@ -1,5 +1,5 @@
 .container{
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   // background-image: url('/pc/sec5Bg.png');
   background-size: 100% 100%;
@@ -24,7 +24,7 @@
       height: 100%;
       overflow: hidden;
       img {
-        width: 100%;
+        height: 100vh;
       }
       &.show {
         display: block;
@@ -36,7 +36,19 @@
   }
   .wordShow {
     transform: translateX(-5vw);
-    padding-top: 12%;
+    padding-top: 1.2rem;
+    .titImg {
+      width: 4rem;
+      margin-bottom: 0.15rem;
+      transform: translateX(-0.35rem);
+    }
+    .splitImg{
+      position: absolute;
+      left: 0;
+      width: 7.5rem;
+      top: 2.25rem;
+      transform: translate(-1.5rem, 0);
+    }
     .wordContainer {
       &.show {
         display: block;
@@ -68,18 +80,24 @@
         }
       }
       .desc {
-        max-width: 30vw;
-        font-size: .24rem;
+        max-width: 6.5rem;
+        font-size: 0.24rem;
         color: #fff;
         white-space: pre-wrap;
         word-break: break-all;
-        margin-top: .8rem;
-        line-height: 1.5;
+        margin-top: 0.6rem;
+        line-height: 2.2;
       }
       .qShow {
-        width: 15vw;
+        width: 3rem;
         margin-top: 0.27rem;
       }
     }
+  }
+}
+
+@media screen and (max-width: 1680px) {
+  .wordShow {
+    zoom: 0.89;
   }
 }

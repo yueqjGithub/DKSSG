@@ -1,10 +1,13 @@
 .container{
-  width: 100vw;
+  width: 100%;
   height: 100vh;
-  background-image: url('/pc/sec3Bg.png');
   background-size: cover;
+  background-position: center;
   position: relative;
-  padding-top: 13%;
+  .titImg {
+    width: 24vw;
+    height: auto;
+  }
   .ty {
     position: absolute;
     right: 0;
@@ -24,15 +27,17 @@
     left: 0;
   }
   .ruleTips {
-    position: absolute;
     font-size: .36rem;
     color: #fff;
+    margin: 0.2rem 0;
     img {
       width: .36rem;
       margin-left: .1rem;
     }
     top: 0;
-    transform: translateY(-.8rem);
+    p {
+      font-size: .36rem;
+    }
   }
   .lContainer{
     position: relative;
@@ -92,9 +97,10 @@
   }
   .cContainer{
     width: 1.62rem;
-    margin: 0 -0.4rem;
+    margin: 0.56rem -0.4rem 0;
     position: relative;
     z-index: 2;
+    align-self: center
   }
   .rContainer{
     width: 6.25rem;
@@ -174,5 +180,8 @@
       width: 3.76rem;
       margin-top: .3rem;
     }
+  }
+  .prizeBgContainer{
+    position: relative;
   }
 }

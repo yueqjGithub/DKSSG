@@ -36,7 +36,7 @@ const SectionFive = ({ roleList }: Props) => {
     })
   }, [roleList])
   return (
-    <div className={`${styles.container} flex-row flex-jst-start flex-ali-start`} style={{ backgroundImage: `url(${imgPrefix}/pc/sec5Bg.png)` }}>
+    <div className={`${styles.container} flex-row flex-jst-start flex-ali-start`} style={{ backgroundImage: `url(${imgPrefix}/pc/normalBg.png)` }}>
       <div className={styles.roleShow}>
         {
           roleImgList.map((item, index) => {
@@ -49,6 +49,8 @@ const SectionFive = ({ roleList }: Props) => {
         }
       </div>
       <div className={styles.wordShow}>
+        <img src={`${imgPrefix}/pc/sec5Tit.png`} alt="" className={styles.titImg}/>
+        <img src={`${imgPrefix}/pc/sec5Com.png`} alt="" className={styles.splitImg}/>
         {
           rightInfoList.map((item, idx) => {
             return (

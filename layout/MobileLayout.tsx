@@ -46,6 +46,17 @@ const MobileLayout = ({ children, topData, showReserve, reserveHandler, shareLin
       window.open(link)
     }
   }
+  const topComputed = useMemo(() => {
+    if (isLogin && !alreadyReserve) {
+      return {
+        flex: 1
+      }
+    } else {
+      return {
+        width: '24%'
+      }
+    }
+  }, [isLogin, alreadyReserve])
   return (
     <div className='m-page-container'>
       {/* header */}
@@ -58,12 +69,12 @@ const MobileLayout = ({ children, topData, showReserve, reserveHandler, shareLin
           </div>
         </div>
         {/* 右边 */}
-        <div className={`${styles.rightSide} flex-row flex-nowrap flex-jst-end flex-ali-center`}>
+        <div className={`${styles.rightSide} flex-row flex-nowrap flex-jst-end flex-ali-center`} style={topComputed}>
           {
-            isLogin && <img src={`${imgPrefix}/mobileImg/logout.png`} alt="" className='click-scale' onClick={() => logoutHandler()}/>
+            isLogin && <img src={`${imgPrefix}/mobileImg/logout.png`} alt="" className='click-scale flex-1' onClick={() => logoutHandler()}/>
           }
           {
-            !alreadyReserve && <img src={`${imgPrefix}/mobileImg/reserve.png`} alt="" className='click-scale' onClick={() => reserveHandler()}/>
+            !alreadyReserve && <img src={`${imgPrefix}/mobileImg/reserve.png`} alt="" className='click-scale flex-1' onClick={() => reserveHandler()}/>
           }
         </div>
       </div>

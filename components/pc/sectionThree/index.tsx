@@ -62,7 +62,7 @@ const SectionThree = ({ fbAndInvite, inviteHandler }: Props) => {
     setShowRule(false)
   }
   return (
-    <div className={`${styles.container} flex-row flex-jst-center flex-ali-center`} style={{ backgroundImage: `url(${imgPrefix}/pc/sec3Bg.png)` }}>
+    <div className={`${styles.container} flex-col flex-jst-center flex-ali-center`} style={{ backgroundImage: `url(${imgPrefix}/pc/normalBg.png)` }}>
       {
         showRule && (
           <div className={`${styles.ruleContainer} cus-slide-top-in flex-col flex-jst-center flex-ali-center`}>
@@ -85,76 +85,83 @@ const SectionThree = ({ fbAndInvite, inviteHandler }: Props) => {
         )
       }
       {/* left */}
-      <div className={styles.lContainer}>
-        <div className={`${styles.ruleTips} full-width flex-row flex-jst-center flex-ali-center`}>
-          <p>*社群平台關注達成獎勵</p>
-          <img src={`${imgPrefix}/pc/sec3/symbol.png`} alt="" className='cursor-pointer hover-scale' onClick={() => openRule('fb')}/>
-        </div>
-        <img src={`${imgPrefix}/pc/sec3/bg_l.png`} alt="" className={styles.bgImg}/>
-        <div className={`${styles.contContainer} flex-row flex-jst-center flex-ali-start`}>
-          {
-            leftList.map((item, idx) => {
-              return (
-                <div className={`${styles.leftItem} flex-col flex-jst-start flex-ali-center`} key={idx}>
-                  <p className={styles.titP}>{item.text}</p>
-                  <div className='flex-row flex-jst-center flex-ali-center'>
-                    <p>突破</p>
-                    <p>{fb[idx]?.text[0].data}</p>
-                  </div>
-                  {/* prize1 */}
-                  <div className={`flex-col flex-jst-start flex-ali-center ${styles.fbPrizeItem} ${styles.first}`}>
-                    <img src={fb[idx]?.images[0].data} alt=""/>
-                    <span>{fb[idx]?.images[0].link}</span>
-                  </div>
-                  <div className='flex-row flex-jst-center flex-ali-start'>
-                    <div className={`${styles.fbPrizeItem} flex-col flex-jst-start flex-ali-center`}>
-                      <img src={fb[idx]?.images[1].data} alt=""/>
-                      <span>{fb[idx]?.images[1].link}</span>
+      <img src={`${imgPrefix}/pc/sec3tit.png`} alt="" className={styles.titImg}/>
+      <div className='flex-row flex-jst-center flex-ali-start'>
+        <div className={styles.lContainer}>
+          <div className={`${styles.ruleTips} full-width flex-row flex-jst-center flex-ali-center`}>
+            <p>*社群平台關注達成獎勵</p>
+            <img src={`${imgPrefix}/pc/sec3/symbol.png`} alt="" className='cursor-pointer hover-scale' onClick={() => openRule('fb')}/>
+          </div>
+          <div className={styles.prizeBgContainer}>
+            <img src={`${imgPrefix}/pc/sec3/bg_l.png`} alt="" className={styles.bgImg}/>
+            <div className={`${styles.contContainer} flex-row flex-jst-center flex-ali-start`}>
+              {
+                leftList.map((item, idx) => {
+                  return (
+                    <div className={`${styles.leftItem} flex-col flex-jst-start flex-ali-center`} key={idx}>
+                      <p className={styles.titP}>{item.text}</p>
+                      <div className='flex-row flex-jst-center flex-ali-center'>
+                        <p>突破</p>
+                        <p>{fb[idx]?.text[0].data}</p>
+                      </div>
+                      {/* prize1 */}
+                      <div className={`flex-col flex-jst-start flex-ali-center ${styles.fbPrizeItem} ${styles.first}`}>
+                        <img src={fb[idx]?.images[0].data} alt=""/>
+                        <span>{fb[idx]?.images[0].link}</span>
+                      </div>
+                      <div className='flex-row flex-jst-center flex-ali-start'>
+                        <div className={`${styles.fbPrizeItem} flex-col flex-jst-start flex-ali-center`}>
+                          <img src={fb[idx]?.images[1].data} alt=""/>
+                          <span>{fb[idx]?.images[1].link}</span>
+                        </div>
+                        <div className={`${styles.fbPrizeItem} flex-col flex-jst-start flex-ali-center`}>
+                          <img src={fb[idx]?.images[2].data} alt=""/>
+                          <span>{fb[idx]?.images[2].link}</span>
+                        </div>
+                      </div>
+                      {/* btn */}
+                      <img src={`${imgPrefix}${item.img}`} alt="" className={`${styles.hBtn} hover-scale cursor-pointer`} onClick={() => openLink(fb[idx]?.text[0].link)}/>
                     </div>
-                    <div className={`${styles.fbPrizeItem} flex-col flex-jst-start flex-ali-center`}>
-                      <img src={fb[idx]?.images[2].data} alt=""/>
-                      <span>{fb[idx]?.images[2].link}</span>
+                  )
+                })
+              }
+            </div>
+          </div>
+        </div>
+        {/* center */}
+        <img src={`${imgPrefix}/pc/sec3/lj.png`} alt="" className={styles.cContainer}/>
+        {/* right */}
+        <div className={styles.rContainer}>
+          <div className={`${styles.ruleTips} full-width flex-row flex-jst-center flex-ali-center`}>
+            <p>*社群平台關注達成獎勵</p>
+            <img src={`${imgPrefix}/pc/sec3/symbol.png`} alt=""  className='cursor-pointer hover-scale'  onClick={() => openRule('invite')}/>
+          </div>
+          <div className={styles.prizeBgContainer}>
+            <img src={`${imgPrefix}/pc/sec3/bg_r.png`} alt="" className={styles.bgImg}/>
+            <div className={`${styles.contContainer} flex-row flex-wrap flex-jst-center flex-ali-start`}>
+              {
+                invite.map((item, idx) => {
+                  return (
+                    <div key={idx} className={`flex-1 ${styles.rPrizeItem} flex-col flex-jst-start flex-ali-center`}>
+                      <div className={'flex-row flex-jst-center flex-ali-end'}>
+                        <p>邀请</p>
+                        <p>{item.text[0].data}</p>
+                      </div>
+                      <div className={`flex-col flex-jst-start flex-ali-center ${styles.rPrize}`}>
+                        <img src={item.images[0].data} alt="" />
+                        <span>{item.images[0].link}</span>
+                      </div>
+                      <div className={`flex-col flex-jst-start flex-ali-center ${styles.rPrize}`}>
+                        <img src={item.images[1].data} alt="" />
+                        <span>{item.images[1].link}</span>
+                      </div>
                     </div>
-                  </div>
-                  {/* btn */}
-                  <img src={`${imgPrefix}${item.img}`} alt="" className={`${styles.hBtn} hover-scale cursor-pointer`} onClick={() => openLink(fb[idx]?.text[0].link)}/>
-                </div>
-              )
-            })
-          }
-        </div>
-      </div>
-      {/* center */}
-      <img src={`${imgPrefix}/pc/sec3/lj.png`} alt="" className={styles.cContainer}/>
-      {/* right */}
-      <div className={styles.rContainer}>
-        <div className={`${styles.ruleTips} full-width flex-row flex-jst-center flex-ali-center`}>
-          <p>*社群平台關注達成獎勵</p>
-          <img src={`${imgPrefix}/pc/sec3/symbol.png`} alt=""  className='cursor-pointer hover-scale'  onClick={() => openRule('invite')}/>
-        </div>
-        <img src={`${imgPrefix}/pc/sec3/bg_r.png`} alt="" className={styles.bgImg}/>
-        <div className={`${styles.contContainer} flex-row flex-wrap flex-jst-center flex-ali-start`}>
-          {
-            invite.map((item, idx) => {
-              return (
-                <div key={idx} className={`flex-1 ${styles.rPrizeItem} flex-col flex-jst-start flex-ali-center`}>
-                  <div className={'flex-row flex-jst-center flex-ali-end'}>
-                    <p>邀请</p>
-                    <p>{item.text[0].data}</p>
-                  </div>
-                  <div className={`flex-col flex-jst-start flex-ali-center ${styles.rPrize}`}>
-                    <img src={item.images[0].data} alt="" />
-                    <span>{item.images[0].link}</span>
-                  </div>
-                  <div className={`flex-col flex-jst-start flex-ali-center ${styles.rPrize}`}>
-                    <img src={item.images[1].data} alt="" />
-                    <span>{item.images[1].link}</span>
-                  </div>
-                </div>
-              )
-            })
-          }
-          <img src={`${imgPrefix}/pc/sec3/yq.png`} alt="" className={`${styles.inviteBtn} cursor-pointer hover-scale`} onClick={() => inviteHandler()}/>
+                  )
+                })
+              }
+              <img src={`${imgPrefix}/pc/sec3/yq.png`} alt="" className={`${styles.inviteBtn} cursor-pointer hover-scale`} onClick={() => inviteHandler()}/>
+            </div>
+          </div>
         </div>
       </div>
       {/* ty */}
