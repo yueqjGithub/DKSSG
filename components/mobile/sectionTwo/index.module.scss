@@ -1,11 +1,11 @@
 .container {
   width: 100vw;
   height: 100vh;
-  background-size: 100% 100%;
+  background-size: cover;
+  background-position: center top;
   overflow-x: hidden;
   position: relative;
-  // top: 0;
-  padding-top: 1.7rem;
+  padding-top: 38vw;
   padding-left: 0.15rem;
   padding-right: 0.17rem;
   scroll-snap-align: center;
@@ -13,6 +13,7 @@
     transform: scale(0.9);
     color: rgba(255,255,255,0.7);
     margin-top: .08rem;
+    margin-left: 5vw;
   }
   .countShow {
     font-size: .27rem;
@@ -22,9 +23,11 @@
       margin: .1rem;
     }
     .tips {
-      margin-top: .06rem;
-      font-size: .12rem;
+      margin-top: 0.06rem;
+      font-size: 0.12rem;
       color: #F6AC63;
+      width: 100%;
+      text-align: center;
     }
   }
   .degContainer {
@@ -76,9 +79,10 @@
         }
       }
       .prizeOut {
-        width: 89%;
+        width: 90%;
         position: relative;
-        padding: .05rem 0;
+        padding: 0.05rem 0;
+        margin-left: 4vw;
         .prizeBg {
           width: 100%;
           height: auto;

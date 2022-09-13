@@ -225,7 +225,7 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
           <SectionFive roleList={roleList}></SectionFive>
           <div className={styles.footerOut}>
         <div className={styles.footer}>
-            <div className={styles.followTit}>FOLLOW US</div>
+            {/* <div className={styles.followTit}>FOLLOW US</div>
             <div className={styles.shareList}>
               <div className="share-item share-wx" onClick={() => window.open('https://www.youtube.com/channel/UCMqPPCyC6sS27FM6ZzkBrGA')}>
                   <img className="share-icon" src={`${imgPrefix}/pc/btm/share_ytb.png`} alt="" />
@@ -240,7 +240,7 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
                   <img className="share-icon" src={`${imgPrefix}/pc/btm/share_bl.png`} alt="" />
               </div>
             </div>
-            <p className={styles.btmEmail}>Contact Us: bd@avalongames.cn</p>
+            <p className={styles.btmEmail}>Contact Us: bd@avalongames.cn</p> */}
             <div className={styles.protocolContainer}>
               <div>© 2022.All RIGHTS RESERVED</div>
               <div onClick={() => window.open('https://avalon-sdk-resource.avalongames.com/v1/en-us/usa.html')}>TERMS OF SERVICE</div>

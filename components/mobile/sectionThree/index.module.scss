@@ -6,7 +6,8 @@
   position: relative;
   // top: 0;
   scroll-snap-align: center;
-  padding-top: 49%;
+  padding-top: 38vw;
+
   .ruleContainer {
     position: fixed;
     z-index: 25;
@@ -15,10 +16,12 @@
     top: 0;
     left: 0;
     background: #333333;
+
     .ruleContent {
       // background-image: url('/pc/sec3/rule_bg.png');
       background-size: 100% 100%;
       padding: 5vw 9vw 15vw;
+
       .ruleTit {
         font-family: "CJNgaiPRCHK-Bold";
         font-weight: bold;
@@ -27,6 +30,7 @@
         margin-bottom: 0.2rem;
         margin-top: 0.2rem;
       }
+
       .ruleDetail {
         width: 72vw;
         font-size: .14rem;
@@ -36,166 +40,170 @@
         word-break: break-all;
       }
     }
+
     .closeBtn {
       width: 50vw;
       margin-top: .3rem;
     }
   }
+
   .contentContainer {
-    width: 84%;
+    width: 84vw;
     position: relative;
 
-    .bgImg {
-      width: 100%;
+    .ruleTips {
+      font-size: 0.18rem;
+      color: #fff;
+      top: 0;
+      margin: 0.13rem 0;
+
+      img {
+        width: 0.18rem;
+        margin-left: 0.1rem;
+      }
+
+      &.ruleTipsR {
+        margin: .13rem;
+      }
     }
 
-    .content {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-
-      .ruleTips {
-        position: absolute;
-        font-size: 0.18rem;
-        color: #fff;
-        top: 0;
-        transform: translateY(-110%);
-
-        img {
-          width: .18rem;
-          margin-left: .1rem;
-        }
-      }
-
-      // top 
-      .topOut {
-        position: relative;
-      }
+    .contTop {
+      background-size: 100% 100%;
+      padding: 7vw;
 
       .leftItem {
-        padding-top: .38rem;
+        &+.leftItem {
+          margin-left: 3vw;
+        }
 
-        p {
-          font-size: .12rem;
-          color: #151416;
-          font-weight: bold;
-          font-family: 'SourceHanSansSC-Medium';
+        .hBtn {
+          width: 37vw;
+          margin-top: 0.05rem;
+        }
 
-          &+p {
-            font-size: .12rem;
-            color: #D0751C;
-            margin-left: .05rem;
-          }
+        .leftItemTop {
+          background-size: 100% 100%;
+          padding: .18rem .16rem .18rem .15rem;
 
-          &.titP {
+          .titP {
+            color: #151416;
+            font-size: .13rem;
+
             &+div {
-              margin-top: .05rem;
+              color: #151416;
+              font-size: .13rem;
+
+              p:nth-of-type(2) {
+                color: #D0751C;
+                font-size: .14rem;
+                font-weight: bold;
+              }
             }
           }
-        }
 
-        &+.leftItem {
-          margin-left: 0.19rem;
-        }
+          .fbPrizeItem {
+            margin-top: .1rem;
 
-        .fbPrizeItem {
-          img {
-            width: .21rem;
-            margin-bottom: .07rem;
-          }
+            &+.fbPrizeItem {
+              margin-left: .1rem;
+            }
 
-          span {
-            font-size: 0.12rem;
-            color: #433B38;
-            font-weight: bold;
-            width: 13vw;
-            text-align: center;
-            white-space: pre-wrap;
-            scale: 0.7;
-            line-height: 1;
-          }
+            .imgContainer {
+              background-size: 100% 100%;
+              width: .43rem;
+              height: .35rem;
+              padding: 0.05rem;
 
-          &.first {
-            margin-top: 0.28rem;
+              img {
+                width: 70%;
+                max-height: 95%;
+              }
 
-            &+div {
-              margin-top: 0.1rem;
+              &+span {
+                font-size: 0.12rem;
+                transform: scale(95%);
+                color: #433B38;
+                width: 0.47rem;
+                display: block;
+                white-space: pre-wrap;
+                font-weight: bold;
+                transform-origin: top;
+                text-align: center;
 
-              .fbPrizeItem {
-                &+.fbPrizeItem {}
+                &.allowWidth {
+                  width: 28vw;
+                }
               }
             }
           }
         }
+      }
+    }
 
-        .hBtn {
-          width: 30vw;
-          margin-top: .25rem;
-        }
+    .lineContainer {
+      align-self: stretch;
+      margin: -5vw 0;
+      position: relative;
+
+      &>img {
+        height: 20vw;
       }
-      .ruleTipsR{
-        font-size: 0.18rem;
-        color: #fff;
-        top: 0;
-        margin-top: 0.5rem;
-        margin-bottom: 0.63rem;
-        img {
-          width: .18rem;
-          margin-left: .1rem;
-        }
+    }
+
+    .contBtm {
+      background-size: 100% 100%;
+      padding: 6vw;
+
+      .inviteBtn {
+        margin-top: .15rem;
+        width: 79vw;
       }
-      // right
-      .contContainer {
-        .inviteBtn {
-          width: 81%;
-          margin-top: 0.25rem;
-        }
+
+      .inviteUl {
+        width: 78vw;
+        justify-content: space-evenly;
 
         .rPrizeItem {
-          &:nth-child(2) {
-            margin: 0 9.5vw;
-          }
-
-          p {
-            font-size: .13rem;
+          background-size: 100% 100%;
+          padding: 4vw 2vw;
+          .rPrizeTit {
             color: #151416;
-            font-weight: bold;
-            font-family: 'SourceHanSansSC-Heavy';
-
-            &+p {
+            font-size: 0.14rem;
+            margin-bottom: 0.1rem;
+            p:nth-of-type(2){
+              color:#D0751C;
               font-size: .15rem;
-              color: #D0751C;
+              font-weight: bold;
               margin-left: .05rem;
             }
           }
-
           .rPrize {
-            margin-top: 0.18rem;
-
-            &+.rPrize {
-              margin-top: 0;
+            .imgContainer {
+              background-size: 100% 100%;
+              width: .43rem;
+              height: .35rem;
+              padding: 0.05rem;
+  
+              img {
+                width: 70%;
+                max-height: 95%;
+              }
+  
+              &+span {
+                font-size: 0.12rem;
+                transform: scale(95%);
+                color: #433B38;
+                width: 17vw;
+                display: block;
+                white-space: pre-wrap;
+                font-weight: bold;
+                transform-origin: top;
+                text-align: center;
+              }
             }
-
-            img {
-              width: .25rem;
-              margin-bottom: .05rem;
-            }
-
-            span {
-              font-size: 0.12rem;
-              color: #433B38;
-              font-weight: bold;
-              width: 15vw;
-              text-align: center;
-              white-space: pre-wrap;
-              transform: scale(70%);
-            }
-          }
+          } 
         }
       }
-      
     }
   }
 }

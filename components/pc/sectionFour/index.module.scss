@@ -2,11 +2,12 @@
   width: 100vw;
   height: 100vh;
   // background-image: url('/pc/sec4/sec4Bg.png');
-  background-size: 100% 100%;
+  background-size: cover;
+  background-position: center center;
   position: relative;
   .bannerContainer {
-    width: 60%;
-    margin-top: 10vh;
+    width: 77%;
+    margin-top: 8vw;
     overflow: hidden;
     position: relative;
     // 控制層

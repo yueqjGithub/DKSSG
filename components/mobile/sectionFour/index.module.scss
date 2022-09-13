@@ -4,6 +4,7 @@
   background-size: 100% 100%;
   overflow-x: hidden;
   position: relative;
+  padding: 47vw 0.03rem 0;
   // top: 0;
   scroll-snap-align: center;
   .dotContainer {
@@ -47,14 +48,17 @@
     width: 100%;
     background-size: cover;
     aspect-ratio: 819/465;
+    border: 2px solid #F6AC63;
   }
   .tvList {
     width: 100%;
+    padding-top: 0.05rem;
     .tvItem {
-      width: 50%;
+      width: calc(50% - 0.02rem);
       aspect-ratio: 819/465;
-      background-size: cover;
+      background-size: 100% 100%;
       filter: brightness(60%);
+      margin-bottom: 0.05rem;
       &.active{
         filter: brightness(100%);
       }

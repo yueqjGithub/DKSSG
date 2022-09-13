@@ -1,24 +1,43 @@
 .container{
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   // background-image: url('/pc/sec1Bg.png');
-  background-size: 100% 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   text-align: center;
   position: relative;
   .roleContainer {
     position: relative;
     .roleImg {
+      position: relative;
       height: 100vh;
-      aspect-ratio: 1263/1060;
+      aspect-ratio: 1827/1060;
     }
-    .playContainer {
-      padding: 1px;
+    .roleTit {
       position: absolute;
-      width: 0.64rem;
-      right: 30%;
-      bottom: 33%;
-      img {
-        width: 100%;
+      bottom: 5%;
+      left: 50%;
+      transform: translateX(-56%);
+      .roleTitImg {
+        width: 85%;
+        display: block;
+      }
+      .playContainer {
+        padding: 1px;
+        position: absolute;
+        width: 7%;
+        right: 0;
+        top: 0%;
+        transform: translate(-253%, 176%);
+        img {
+          width: 100%;
+          display: block;
+          animation-name: shake-opacity;
+          animation-duration: 5s;
+          animation-timing-function: ease-in-out;
+          animation-iteration-count: infinite;
+        }
       }
     }
   }
@@ -80,5 +99,60 @@
         }
       }
     }
+  }
+}
+
+@keyframes shake-opacity {
+  2% {
+    transform: translate(-2px, 0px);
+    opacity: .32;
+  }
+  4% {
+    transform: translate(2px, -1px);
+    opacity: .85;
+  }
+  5% {
+      transform: translate(-2px, 0px);
+      opacity: .83;
+  }
+  9% {
+      transform: translate(2px, 1px);
+      opacity: .97;
+  }
+  10% {
+      transform: translate(1px, -2px);
+      opacity: .81;
+  }
+  13% {
+      transform: translate(1px, -2px);
+      opacity: .82;
+  }
+  71% {
+    transform: translate(1px, -2px);
+    opacity: 1;
+  }
+  72% {
+    transform: translate(-2px, 0px);
+    opacity: 1;
+  }
+  74% {
+    transform: translate(1px, -2px);
+    opacity: 1;
+  }
+  76% {
+    transform: translate(0px, -2px);
+    opacity: 1;
+  }
+  78% {
+    transform: translate(1px, -1px);
+    opacity: 1;
+  }
+  80% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  0%, 100% {
+      transform: translate(0, 0);
+      opacity: 1;
   }
 }

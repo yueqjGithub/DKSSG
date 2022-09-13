@@ -218,7 +218,7 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
           showPrize && <PrizeModal closeHandler={() => setShowPrize(false)}></PrizeModal>
         }
         <div ref={contRef} className={styles.pageContainer} onWheel={(e) => changeScreen(e)}
-        style={{ top: currentScreen < tabs.length ? `-${currentScreen * 100}vh` : `-${(currentScreen - 1) * 100 + 35}vh` }}
+        style={{ top: currentScreen < tabs.length ? `-${currentScreen * 100}vh` : `-${(currentScreen - 1) * 100 + 12}vh` }}
         >
           <SectionOne video={videoSource.video[0]} loginHandler={getCode}></SectionOne>
           {
@@ -232,7 +232,7 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
           <SectionFour banners={banners}></SectionFour>
           <SectionFive roleList={roleList}></SectionFive>
           <div className={styles.footer}>
-            <div className={styles.followTit}>FOLLOW US</div>
+            {/* <div className={styles.followTit}>FOLLOW US</div>
             <div className={styles.shareList}>
               <div className={`${styles.shareItem} ${styles.shareWx}`} onClick={() => window.open('https://www.youtube.com/channel/UCMqPPCyC6sS27FM6ZzkBrGA')}>
                   <img className={styles.shareIcon} src={`${imgPrefix}/pc/btm/share_ytb.png`} alt="" />
@@ -248,7 +248,7 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
               </div>
             </div>
             <p className={styles.btmEmail}>Contact Us: bd@avalongames.cn</p>
-            <div className={styles.btmSplitLine}></div>
+            <div className={styles.btmSplitLine}></div> */}
             <div className={styles.introdcution}>
               <div className={styles.introEn}>
                 <div>© 2022.All RIGHTS RESERVED</div>

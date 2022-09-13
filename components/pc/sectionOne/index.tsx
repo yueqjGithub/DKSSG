@@ -1,6 +1,5 @@
 import { useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { Context } from '../../../store'
-import { FbLogin } from '../../../utils/fbLogin'
 import styles from './index.module.scss'
 
 type Props = {
@@ -50,12 +49,32 @@ const SectionOne = ({ video, loginHandler }: Props) => {
   useEffect(() => {
     setVideoSize()
   }, [])
+  const iRef = useRef<HTMLImageElement>(null)
+  const moveRole = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    // 中心點
+    const cx = document.documentElement.clientWidth / 2
+    const cy = document.documentElement.clientHeight / 2
+    const px = e.clientX
+    const py = e.clientY
+    const ox = (px - cx) / cx
+    const oy = (py - cy) / cy
+    const tx = `${(5 * ox) * -1}px`
+    const ty = `${(3 * oy) * -1}px`
+    if (iRef.current) {
+      iRef.current.style.transform = `translate(${tx},${ty})`
+    }
+  }
   return (
-    <div className={`${styles.container} flex-row flex-jst-center flex-ali-center`} style={{ backgroundImage: `url(${imgPrefix}/pc/sec1Bg.png)` }}>
+    <div className={`${styles.container} flex-row flex-jst-center flex-ali-center`} style={{ backgroundImage: `url(${imgPrefix}/pc/sec1Bg.png)` }}
+      onMouseMove={moveRole}
+    >
       <div className={styles.roleContainer}>
-        <img src={`${imgPrefix}/pc/sec1person.png`} alt="" className={styles.roleImg}/>
-        <div className={`${styles.playContainer} cursor-pointer`} onClick={() => changePlay(true)}>
-          <img src={`${imgPrefix}/pc/playBtn.png`} alt="" className='hover-scale'/>
+        <img src={`${imgPrefix}/pc/sec1person.png`} alt="" className={styles.roleImg} ref={iRef}/>
+        <div className={`${styles.roleTit} flex-row flex-jst-center flex-ali-center`}>
+          <img src={`${imgPrefix}/pc/sec1tit.png`} alt="" className={styles.roleTitImg}/>
+          <div className={`${styles.playContainer} cursor-pointer`} onClick={() => changePlay(true)}>
+            <img src={`${imgPrefix}/pc/playBtn.png`} alt="" className='hover-scale'/>
+          </div>
         </div>
       </div>
       <div className={`${styles.videoFlowContainer}`} style={{ display: isPlay ? 'block' : 'none' }}>

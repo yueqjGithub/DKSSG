@@ -34,7 +34,7 @@ const SectionTwo = ({ count, reserves, curDeg }: Props) => {
         {
           prizeList.map((item, index) => {
             return (
-              <div key={index} className={`${curDeg <= index ? styles.waitDeg : ''} ${styles.degItem} ${item.isFirst ? styles.start : ''} ${item.isLast ? styles.end : ''} full-width flex-row flex-jst-btw flex-ali-center`}>
+              <div key={index} className={`${curDeg <= index ? styles.waitDeg : ''} ${styles.degItem} ${item.isFirst ? styles.start : ''} ${item.isLast ? styles.end : ''} full-width flex-row flex-jst-start flex-ali-center`}>
                 {/* 左側進度 */}
                 <div className={`${styles.degLine} self-stretch`}>
                   <div className={styles.degSquare}></div>
@@ -66,7 +66,7 @@ const SectionTwo = ({ count, reserves, curDeg }: Props) => {
         }
       </div>
       {/* tips */}
-      <div className={`${styles.tips} full-width flex-row flex-jst-end flex-ali-center font-12`}>
+      <div className={`${styles.tips} full-width flex-row flex-jst-center flex-ali-center font-12`}>
         *達成集結目標，所有獎勵將在正式開服後發放給全伺服器玩家
       </div>
     </div>
