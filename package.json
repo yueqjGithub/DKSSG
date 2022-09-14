@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "start": "next export",
+    "start": "next build && next export",
     "lint": "next lint"
   },
   "dependencies": {
