@@ -121,17 +121,19 @@
 
               &+span {
                 font-size: 0.12rem;
-                transform: scale(95%);
+                transform: scale(85%);
                 color: #433B38;
-                width: 0.47rem;
+                -webkit-line-clamp: 2;
+                height: 0.26rem;
                 display: block;
                 white-space: pre-wrap;
                 font-weight: bold;
                 transform-origin: top;
                 text-align: center;
-
+                width: 0.55rem;
                 &.allowWidth {
                   width: 28vw;
+                  height: 0.14rem;
                 }
               }
             }
@@ -165,7 +167,7 @@
 
         .rPrizeItem {
           background-size: 100% 100%;
-          padding: 4vw 2vw;
+          padding: 4vw 3vw;
           .rPrizeTit {
             color: #151416;
             font-size: 0.14rem;
@@ -178,6 +180,9 @@
             }
           }
           .rPrize {
+            &+.rPrize{
+              margin-top: .1rem;
+            }
             .imgContainer {
               background-size: 100% 100%;
               width: .43rem;
@@ -191,14 +196,16 @@
   
               &+span {
                 font-size: 0.12rem;
-                transform: scale(95%);
+                transform: scale(85%);
                 color: #433B38;
-                width: 17vw;
+                width: 0.51rem;
+                height: 0.27rem;
                 display: block;
                 white-space: pre-wrap;
                 font-weight: bold;
                 transform-origin: top;
                 text-align: center;
+                -webkit-line-clamp: 2;
               }
             }
           } 

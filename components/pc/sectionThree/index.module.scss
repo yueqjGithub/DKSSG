@@ -86,7 +86,7 @@
             margin-top: 0.35rem;
             .fbPrizeItem {
               &+.fbPrizeItem{
-                margin-left: .1rem;
+                margin-left: .13rem;
               }
             }
           }
@@ -94,7 +94,7 @@
       }
       .hBtn {
         width: 2.46rem;
-        margin-top: .45rem;
+        margin-top: .65rem;
       }
     }
   }
@@ -131,14 +131,18 @@
           }
         }
         .rPrize {
-          margin-top: 0.55rem;
+          margin-top: 0.57rem;
           &+.rPrize {
-            margin-top: 0.4rem;
+            margin-top: 0.36rem;
+            transform: translateX(3px);
+            img {
+              margin-bottom: .13rem;
+            }
           }
           img {
-            width: .4rem;
-            max-height: 0.4rem;
-            margin-bottom: .14rem;
+            width: 0.38rem;
+            height: 0.4rem;
+            margin-bottom: .15rem;
           }
           span {
             font-size: .14rem;

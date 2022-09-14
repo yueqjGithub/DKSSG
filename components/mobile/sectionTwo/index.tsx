@@ -43,13 +43,13 @@ const SectionTwo = ({ count, reserves, curDeg }: Props) => {
                 <div className={styles.prizeOut}>
                   <img src={`${imgPrefix}/mobileImg/degBg.png`} alt="" className={styles.prizeBg}/>
                   <div className={`${styles.content} flex-col flex-jst-start flex-ali-center`}>
-                    <p className={styles.title}><span>{item.count}</span>事前登錄人數突破</p>
+                    <p className={styles.title}>事前登錄人數突破<span>{item.count}</span></p>
                     <div className={`${styles.prizeList} flex-row flex-jst-center flex-ali-start`}>
                       {/* <img src={reserves[index]?.images[0].data} alt="" className={styles.reservePrizeImg}/>
                       <img src={reserves[index]?.images[1].data} alt="" className={styles.reservePrizeImg}/>
                       <p>{reserves[index]?.text[0].data}</p>
                       <p>{reserves[index]?.text[1].data}</p> */}
-                      <div className={`${styles.prizeItem} flex-col flex-jst-start flex-ali-center`}>
+                      <div className={`${styles.prizeItem} ${styles.prizeItemLeft} flex-col flex-jst-start flex-ali-center`}>
                         <img src={reserves[index]?.images[0].data} alt="" className={styles.reservePrizeImg}/>
                         <p>{reserves[index]?.text[0].data}</p>
                       </div>
