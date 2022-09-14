@@ -3,6 +3,7 @@ import styles from './pclayout.module.scss'
 import { Context } from '../store'
 import { httpPost } from '../service/http'
 import urls from '../service/urls'
+import Head from 'next/head'
 type Props = {
   children: React.ReactElement
   shareLink: FixedContentItem<FixedTypeEnum.IMAGES>['content']
@@ -48,89 +49,93 @@ const PcLayout = ({ children, shareLink, downBtnList, qrcode, showReserve, openP
     }
   }
   return (
-    <div className="page-pc-container">
-    {children}
-    {/* 左侧slider */}
-    <div className={`flex-row flex-jst-start flex-ali-start ${styles.sideShareContainer}`} style={{ left: sideExpand ? '0' : '-1.36rem' }}>
-      <div className={styles.bgImg}>
-        {/* <Image src='/pc/left_slid_bg.png' alt='' width={136} height={608}></Image> */}
-        <div className={`${styles.shareContentContainer} flex-col flex-jst-start flex-ali-center`} style={{ backgroundImage: `url(${imgPrefix}/pc/left_slid_bg.png)` }}>
-          {/* 内容 */}
-          {
-            shareLink.map((item, index) => {
-              return (
-                <div className={`${styles.shareLinkIcon} cursor-pointer`} key={index} onClick={() => openLink(item.link)}>
-                  <img src={item.data} alt={item.link} style={{ width: '100%', height: 'auto' }}></img>
-                </div>
-              )
-            })
-          }
-          <div style={{ height: 14 }}></div>
-          {/* 下载按钮 */}
-          {
-            downBtnList.map((item, index) => {
-              return (
-                <div className={`${styles.donwBtn} cursor-pointer`} key={index}>
-                  {
-                    item.link ? (
-                      <img src={item.data} alt={item.link} style={{ width: '100%', height: 'auto' }} onClick={() => openLink(item.link)}></img>
-                    ) : (
-                      <>
-                        {
-                          showReserve && <img src={item.data} style={{ width: '100%', height: 'auto' }} alt={item.link} onClick={() => openPrize()}></img>
-                        }
-                      </>
-                    )
-                  }
-                </div>
-              )
-            })
-          }
-          {
-            showReserve && (
-              <>
-              <div className={styles.qrContainer}>
-                <img alt={qrcode.link} src={qrcode.data} style={{ width: '100%' }}></img>
-              </div>
-              <p className={styles.qrTips}>掃碼手機預約</p>
-              </>
-            )
-          }
-        </div>
-      </div>
-      <div className={styles.expandBtn} onClick={() => {
-        if (dispatch) {
-          dispatch({ type: 'set', key: 'sideExpand', val: !sideExpand })
-        }
-      }}>
-        {
-          sideExpand ? (
-            <img src={`${imgPrefix}/pc/un_expand.png`} alt='' style={{ width: '100%' }}></img>
-          ) : (
-            <img src={`${imgPrefix}/pc/expand.png`} alt='' style={{ width: '100%' }}></img>
-          )
-        }
-      </div>
-    </div>
-    {/* 右侧导航 */}
-    <div className={`${styles.rightSide} flex-col flex-jst-start flex-ali-end`}>
-      {
-        tabs.map((item, idx) => {
-          return <div className={`${styles.tabItem} ${currentScreen === idx ? styles.tabActive : ''} cursor-pointer`} key={item}
-            onClick={() => setTab(idx)}
-          >
-            <span>{item}</span>
-            <div className={styles.activeBg}>
+    <>
+      <Head>
+        <title>魔爾街之王-要素過多的Roguelike策略塔防手游</title>
+      </Head>
+      <div className="page-pc-container">
+        {children}
+        {/* 左侧slider */}
+        <div className={`flex-row flex-jst-start flex-ali-start ${styles.sideShareContainer}`} style={{ left: sideExpand ? '0' : '-1.36rem' }}>
+          <div className={styles.bgImg}>
+            {/* <Image src='/pc/left_slid_bg.png' alt='' width={136} height={608}></Image> */}
+            <div className={`${styles.shareContentContainer} flex-col flex-jst-start flex-ali-center`} style={{ backgroundImage: `url(${imgPrefix}/pc/left_slid_bg.png)` }}>
+              {/* 内容 */}
+              {
+                shareLink.map((item, index) => {
+                  return (
+                    <div className={`${styles.shareLinkIcon} cursor-pointer`} key={index} onClick={() => openLink(item.link)}>
+                      <img src={item.data} alt={item.link} style={{ width: '100%', height: 'auto' }}></img>
+                    </div>
+                  )
+                })
+              }
+              <div style={{ height: 14 }}></div>
+              {/* 下载按钮 */}
+              {
+                downBtnList.map((item, index) => {
+                  return (
+                    <div className={`${styles.donwBtn} cursor-pointer`} key={index}>
+                      {
+                        item.link ? (
+                          <img src={item.data} alt={item.link} style={{ width: '100%', height: 'auto' }} onClick={() => openLink(item.link)}></img>
+                        ) : (
+                          <>
+                            {
+                              showReserve && <img src={item.data} style={{ width: '100%', height: 'auto' }} alt={item.link} onClick={() => openPrize()}></img>
+                            }
+                          </>
+                        )
+                      }
+                    </div>
+                  )
+                })
+              }
+              {
+                showReserve && (
+                  <>
+                  <div className={styles.qrContainer}>
+                    <img alt={qrcode.link} src={qrcode.data} style={{ width: '100%' }}></img>
+                  </div>
+                  <p className={styles.qrTips}>掃碼手機預約</p>
+                  </>
+                )
+              }
             </div>
           </div>
-        })
-      }
-    </div>
-    {
-      isLogin && <img src={`${imgPrefix}/pc/logout.png`} alt="" className={`${styles.logout} cursor-pointer hover-scale`} onClick={() => logoutHandler()}/>
-    }
-  </div>
-
+          <div className={styles.expandBtn} onClick={() => {
+            if (dispatch) {
+              dispatch({ type: 'set', key: 'sideExpand', val: !sideExpand })
+            }
+          }}>
+            {
+              sideExpand ? (
+                <img src={`${imgPrefix}/pc/un_expand.png`} alt='' style={{ width: '100%' }}></img>
+              ) : (
+                <img src={`${imgPrefix}/pc/expand.png`} alt='' style={{ width: '100%' }}></img>
+              )
+            }
+          </div>
+        </div>
+        {/* 右侧导航 */}
+        <div className={`${styles.rightSide} flex-col flex-jst-start flex-ali-end`}>
+          {
+            tabs.map((item, idx) => {
+              return <div className={`${styles.tabItem} ${currentScreen === idx ? styles.tabActive : ''} cursor-pointer`} key={item}
+                onClick={() => setTab(idx)}
+              >
+                <span>{item}</span>
+                <div className={styles.activeBg}>
+                </div>
+              </div>
+            })
+          }
+        </div>
+        {
+          isLogin && <img src={`${imgPrefix}/pc/logout.png`} alt="" className={`${styles.logout} cursor-pointer hover-scale`} onClick={() => logoutHandler()}/>
+        }
+      </div>
+    </>
   )
 }
 
