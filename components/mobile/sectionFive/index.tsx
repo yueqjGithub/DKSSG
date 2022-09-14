@@ -15,7 +15,7 @@ const SectionFive = ({ roleList }: Props) => {
   }, [roleList])
   const roleImgList = useMemo(() => {
     return roleList.map((item) => {
-      return item.images[0] // { data: url, link: color }
+      return item.images[item.images?.length - 1] || { data: '' } // { data: url, link: color }
     })
   }, [roleList])
   const rightInfoList = useMemo(() => {
@@ -24,8 +24,8 @@ const SectionFive = ({ roleList }: Props) => {
       return {
         name: item.text[len - 1]?.data || '',
         keys: item.text.map((j: { data: string }) => j.data).filter((i: string, idx: number) => idx < len - 1),
-        desc: item.richText[0].data,
-        qShow: item.images[1].data
+        desc: item.richText[0]?.data,
+        qShow: item.images[1]?.data
       }
     })
   }, [roleList])
