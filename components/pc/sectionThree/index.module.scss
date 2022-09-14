@@ -44,6 +44,8 @@
     z-index: 1;
     width: 6.25rem;
     .leftItem {
+      .leftBtmCont {
+      }
       p {
         font-size: .17rem;
         color: #151416;
@@ -66,19 +68,20 @@
       }
       .fbPrizeItem {
         img {
-          width: .4rem;
-          margin-bottom: .16rem;
+          width: 0.4rem;
+          max-height: 0.45rem;
+          margin-bottom: 0.16rem;
         }
         span {
-          font-size: .14rem;
+          font-size: 0.14rem;
           color: #433B38;
           font-weight: bold;
-          width: 0.9rem;
           text-align: center;
-          white-space: pre-wrap;
+          white-space: nowrap;
+          zoom: 0.9;
         }
         &.first {
-          margin-top: 0.5rem;
+          margin-top: 0.55rem;
           &+div {
             margin-top: 0.35rem;
             .fbPrizeItem {
@@ -130,19 +133,20 @@
         .rPrize {
           margin-top: 0.55rem;
           &+.rPrize {
-            margin-top: 0.15rem;
+            margin-top: 0.4rem;
           }
           img {
             width: .4rem;
+            max-height: 0.4rem;
             margin-bottom: .14rem;
           }
           span {
             font-size: .14rem;
-            color: #433B38;
-            font-weight: bold;
-            width: 0.9rem;
+            color: #433b38;
+            font-weight: 700;
             text-align: center;
-            white-space: pre-wrap;
+            white-space: nowrap;
+            zoom: 0.9;
           }
         }
       }

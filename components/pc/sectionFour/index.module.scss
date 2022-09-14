@@ -10,6 +10,7 @@
     margin-top: 8vw;
     overflow: hidden;
     position: relative;
+    perspective: 1rem;
     // 控制層
     .control {
       position: absolute;
@@ -63,14 +64,14 @@
         top: 0;
         left: 50%;
         z-index: 3;
-        transform: translate(-76%, 0) scale(90%);
+        transform: translate(-76%, 0) scale(75%) rotateY(2deg);
       }
       &.next {
         position: absolute;
         top: 0;
         left: 50%;
         z-index: 3;
-        transform: translate(-24%, 0) scale(90%);
+        transform: translate(-24%, 0) scale(75%) rotateY(-2deg);
       }
     }
   }

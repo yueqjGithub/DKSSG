@@ -109,8 +109,8 @@ const SectionThree = ({ fbAndInvite, inviteHandler }: Props) => {
                         <img src={fb[idx]?.images[0].data} alt=""/>
                         <span>{fb[idx]?.images[0].link}</span>
                       </div>
-                      <div className='flex-row flex-jst-center flex-ali-start'>
-                        <div className={`${styles.fbPrizeItem} flex-col flex-jst-start flex-ali-center`}>
+                      <div className={`${styles.leftBtmCont} flex-row flex-jst-center flex-ali-start`}>
+                        <div className={`${styles.fbPrizeItem} flex-col flex-jst-start flex-ali-center`} style={{ transform: `translateX(-${idx === 0 ? 0.15 : 0.05}rem)` }}>
                           <img src={fb[idx]?.images[1].data} alt=""/>
                           <span>{fb[idx]?.images[1].link}</span>
                         </div>

@@ -93,11 +93,11 @@
     position: relative;
     width: 100%;
     padding: 0 .05rem;
-    &:hover {
-      .sand {
-        z-index: 4;
-      }
-    }
+    // &:hover {
+    //   .sand {
+    //     z-index: 4;
+    //   }
+    // }
     .sand {
       width: 0;
       height: 0;
