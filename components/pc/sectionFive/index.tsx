@@ -86,7 +86,7 @@ const SectionFive = ({ roleList }: Props) => {
         }
       </div>
       {/* 底部 */}
-      <div className={`${styles.ctrlOut} full-width flex-row flex-jst-center flex-ali-center`}>
+      <div className={`${styles.ctrlOut} full-width flex-wrap flex-row flex-jst-center flex-ali-center`}>
         {
           avatarList.map((item, index) => {
             return (

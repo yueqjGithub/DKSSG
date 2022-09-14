@@ -11,12 +11,12 @@
     right: .13rem;
     z-index: 10;
     .avatarItem {
-      width: 0.7rem;
+      width: 0.64rem;
       img {
         width: 100%;
       }
       &+.avatarItem{
-        margin-top: .1rem;
+        margin-top: .05rem;
       }
     }
   }

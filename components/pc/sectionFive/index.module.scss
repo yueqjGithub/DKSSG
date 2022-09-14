@@ -8,9 +8,11 @@
   .ctrlOut {
     position: absolute;
     bottom: 5%;
+    width: 53%;
+    left: 0;
     .avatarItem {
-      width: 1rem;
-      margin: 0 .2rem;
+      width: 0.75rem;
+      margin: 0 .10rem;
       img {
         width: 100%;
       }
