@@ -20,14 +20,10 @@ const SectionFive = ({ roleList }: Props) => {
   }, [roleList])
   const rightInfoList = useMemo(() => {
     return roleList.map((item) => {
+      const len = item.text.length
       return {
-        name: item.text[4].data,
-        keys: [
-          item.text[0].data,
-          item.text[1].data,
-          item.text[2].data,
-          item.text[3].data,
-        ],
+        name: item.text[len - 1]?.data || '',
+        keys: item.text.map((j: { data: string }) => j.data).filter((i: string, idx: number) => idx < len - 1),
         desc: item.richText[0].data,
         qShow: item.images[1].data
       }
@@ -73,7 +69,7 @@ const SectionFive = ({ roleList }: Props) => {
                   <div className={`${styles.title} cus-slide-right-in any-delay-1`}>{item.name}</div>
                   <div className={`${styles.keyContainer} flex-row flex-jst-start flex-ali-center cus-slide-right-in any-delay-2`}>
                     {
-                      item.keys.map((keyItem, keyIdx) => {
+                      item.keys.map((keyItem: string, keyIdx: number) => {
                         return (
                           <div key={keyIdx} className='flex-row flex-jst-start flex-ali-center'>
                             {
