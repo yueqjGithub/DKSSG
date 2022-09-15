@@ -51,7 +51,7 @@ const PcLayout = ({ children, shareLink, downBtnList, qrcode, showReserve, openP
   return (
     <>
       <Head>
-        <title>魔爾街之王-要素過多的Roguelike策略塔防手游</title>
+        <title>魔爾街之王-DungeonOverlord-要素過多的Roguelike塔防手游</title>
       </Head>
       <div className="page-pc-container">
         {children}
