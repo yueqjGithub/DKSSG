@@ -83,7 +83,7 @@ const SectionOne = ({ video, loginHandler }: Props) => {
               <div className={styles.vFlow} onClick={() => changePlay(false)}></div>
               <div className={styles.vPosition}>
                 <div className={`${styles.closeBtn} flex-row flex-jst-center flex-ali-center`} onClick={() => changePlay(false)}>
-                  <img src='/common/close-bold.png' alt=""/>
+                  <img src={`${imgPrefix}/common/close-bold.png`} alt=""/>
                 </div>
                 {
                   isPlay ? (
