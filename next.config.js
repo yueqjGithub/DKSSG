@@ -7,6 +7,9 @@ const nextConfig = {
   swcMinify: true,
   images: {
     domains: ['corp-all-web-rs-test.oss-cn-hongkong.aliyuncs.com'],
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
   }
 }
 
