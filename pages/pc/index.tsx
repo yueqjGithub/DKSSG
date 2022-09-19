@@ -36,7 +36,7 @@ type Props = {
 const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReserve, videoSource, reserves, fbAndInvite, banners, roleList }) => {
   const { state, dispatch } = useContext(Context)
   const contRef = useRef<any>()
-  const { currentScreen, sideTab, imgPrefix } = state
+  const { currentScreen, sideTab, imgPrefix, denyScroll } = state
   const [sharePath, setSharePath] = useState<string>()
   const [showShare, setShowShare] = useState<boolean>(false)
   const [showPrize, setShowPrize] = useState<boolean>(false)
@@ -47,6 +47,9 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
   const timer = useRef<any>(null)
   // 获取滚轮事件
   const getDirection = (e: any) => {
+    if (denyScroll) {
+      return false
+    }
     if (e.deltaY > 0) {
       if (currentScreen < tabs.length) {
         if (dispatch) {

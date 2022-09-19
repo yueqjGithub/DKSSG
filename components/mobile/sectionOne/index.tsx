@@ -18,7 +18,7 @@ type VideoPx = {
 }
 
 const SectionOne = ({ count, showReserve, loginHandler, downBtnList, video }: Props) => {
-  const { state } = useContext(Context)
+  const { state, dispatch } = useContext(Context)
   const { isLogin, codes, imgPrefix } = state
   const storeLink = useMemo(() => {
     return downBtnList?.pop()?.link

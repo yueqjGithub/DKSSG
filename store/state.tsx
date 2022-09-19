@@ -13,6 +13,7 @@ export type InitStates = {
   shareFrom?: string
   [key: string]: any
   imgPrefix: string
+  denyScroll: boolean
 }
 
 export const globalInfo: InitStates = {
@@ -24,5 +25,6 @@ export const globalInfo: InitStates = {
   auth: undefined,
   isLogin: false,
   codes: [],
-  shareFrom: undefined
+  shareFrom: undefined,
+  denyScroll: false
 }

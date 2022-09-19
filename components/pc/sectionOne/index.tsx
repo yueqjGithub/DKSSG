@@ -15,7 +15,7 @@ type VideoPx = {
 }
 
 const SectionOne = ({ video, loginHandler }: Props) => {
-  const { state } = useContext(Context)
+  const { state, dispatch } = useContext(Context)
   const { showReserve, codes, isLogin, imgPrefix } = state
   const alreadyReserve = useMemo(() => {
     return codes.find(item => item.codeType === 'RESERVE') !== undefined
@@ -25,8 +25,10 @@ const SectionOne = ({ video, loginHandler }: Props) => {
   const changePlay = (status: boolean) => {
     setPlay(status)
     if (status) {
+      dispatch && dispatch({ type: 'set', key: 'denyScroll', val: true })
       vRef.current?.play()
     } else {
+      dispatch && dispatch({ type: 'set', key: 'denyScroll', val: false })
       vRef.current?.pause()
     }
   }
@@ -87,7 +89,7 @@ const SectionOne = ({ video, loginHandler }: Props) => {
                 </div>
                 {
                   isPlay ? (
-                    <video ref={vRef} autoPlay={true} preload="true" loop controls={true} width={videoInfo.width} height={videoInfo.height} style={{ background: '#000' }}>
+                  <video ref={vRef} controlsList="nodownload" autoPlay={true} preload="true" loop controls={true} width={videoInfo.width} height={videoInfo.height} style={{ background: '#000' }}>
                     <source src={video.data} />
                   </video>
                   ) : ''
