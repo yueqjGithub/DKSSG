@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import { Context } from '../../../store'
 import styles from './index.module.scss'
 
@@ -20,8 +20,28 @@ const prizeList = [
 const SectionTwo = ({ count, reserves, curDeg }: Props) => {
   const { state } = useContext(Context)
   const { imgPrefix } = state
+  const containerRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          console.log(containerRef.current!.offsetTop)
+          const container = document.querySelector('.m-page-container')
+          container!.scrollTo(0, containerRef.current!.offsetTop)
+        }
+      })
+    }, {
+      threshold: [0.15]
+    })
+    if (containerRef.current) {
+      io.observe(containerRef.current)
+    }
+    return () => {
+      io.disconnect()
+    }
+  }, [containerRef])
   return (
-    <div className={`${styles.container} flex-col flex-jst-start flex-ali-center`}
+    <div ref={containerRef} className={`${styles.container} flex-col flex-jst-start flex-ali-center`}
       style={{ backgroundImage: `url(${imgPrefix}/mobileImg/sec2Bg.png)` }}
     >
       {/* 人數顯示 */}

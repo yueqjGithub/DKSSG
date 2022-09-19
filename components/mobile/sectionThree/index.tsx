@@ -1,4 +1,4 @@
-import { useContext, useMemo, useState } from 'react'
+import { useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { Context } from '../../../store'
 import styles from './index.module.scss'
 
@@ -58,8 +58,28 @@ const SectionThree = ({ fbAndInvite, inviteHandler }: Props) => {
   const closeRule = () => {
     setShowRule(false)
   }
+  const containerRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          console.log(containerRef.current!.offsetTop)
+          const container = document.querySelector('.m-page-container')
+          container!.scrollTo(0, containerRef.current!.offsetTop)
+        }
+      })
+    }, {
+      threshold: [0.15]
+    })
+    if (containerRef.current) {
+      io.observe(containerRef.current)
+    }
+    return () => {
+      io.disconnect()
+    }
+  }, [containerRef])
   return (
-    <div className={`${styles.container} flex-col flex-jst-start flex-ali-center`}
+    <div ref={containerRef} className={`${styles.container} flex-col flex-jst-start flex-ali-center`}
       style={{ backgroundImage: `url(${imgPrefix}/mobileImg/sec3bg.png)` }}
     >
       {/* rule */}

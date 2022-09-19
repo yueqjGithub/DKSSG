@@ -55,8 +55,28 @@ const SectionOne = ({ count, showReserve, loginHandler, downBtnList, video }: Pr
   useEffect(() => {
     setVideoSize()
   }, [])
+  const containerRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          console.log(containerRef.current!.offsetTop)
+          const container = document.querySelector('.m-page-container')
+          container!.scrollTo(0, containerRef.current!.offsetTop)
+        }
+      })
+    }, {
+      threshold: [0.15]
+    })
+    if (containerRef.current) {
+      io.observe(containerRef.current)
+    }
+    return () => {
+      io.disconnect()
+    }
+  }, [containerRef])
   return (
-    <div className={`${styles.container} flex-row flex-jst-center flex-ali-end`} style={{ backgroundImage: `url(${imgPrefix}/mobileImg/sec1Bg.png)` }}>
+    <div ref={containerRef} className={`${styles.container} flex-row flex-jst-center flex-ali-end`} style={{ backgroundImage: `url(${imgPrefix}/mobileImg/sec1Bg.png)` }}>
       <img src={`${imgPrefix}/mobileImg/sec1P.png`} alt="" className={styles.bgPerson}/>
       <img src={`${imgPrefix}/mobileImg/playBtn.png`} alt="" className={`${styles.playBtn} click-scale`} onClick={() => setPlay(true)}/>
       {

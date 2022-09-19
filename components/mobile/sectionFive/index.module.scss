@@ -4,7 +4,6 @@
   overflow: hidden;
   position: relative;
   // top: 0;
-  scroll-snap-align: center;
   .avatorContainer {
     position: absolute;
     top: .9rem;
@@ -29,6 +28,7 @@
     top: 0;
     left: 0;
     z-index: 6;
+    background-repeat: no-repeat;
     &.show {
       display: block;
     }
@@ -48,7 +48,7 @@
     position: absolute;
     bottom: 10vh;
     left: 0;
-    z-index: 17;
+    z-index: 9;
     .descTitImg {
       width: 48vw;
       margin-left: 5vw;

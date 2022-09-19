@@ -1,4 +1,4 @@
-import { useContext, useState, useMemo } from 'react'
+import { useContext, useState, useMemo, useEffect, useRef } from 'react'
 import { Context } from '../../../store'
 import styles from './index.module.scss'
 type Props = {
@@ -29,8 +29,28 @@ const SectionFive = ({ roleList }: Props) => {
       }
     })
   }, [roleList])
+  const containerRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          console.log(containerRef.current!.offsetTop)
+          const container = document.querySelector('.m-page-container')
+          container!.scrollTo(0, containerRef.current!.offsetTop)
+        }
+      })
+    }, {
+      threshold: [0.15]
+    })
+    if (containerRef.current) {
+      io.observe(containerRef.current)
+    }
+    return () => {
+      io.disconnect()
+    }
+  }, [containerRef])
   return (
-    <div className={styles.container} style={{ backgroundImage: `url(${imgPrefix}/mobileImg/sec5Bg.png)` }}>
+    <div ref={containerRef} className={styles.container} style={{ backgroundImage: `url(${imgPrefix}/mobileImg/sec5Bg.png)` }}>
       <div className={`${styles.avatorContainer} flex-col flex-jst-start flex-ali-center`}>
         {
           avatarList.map((item, idx) => {

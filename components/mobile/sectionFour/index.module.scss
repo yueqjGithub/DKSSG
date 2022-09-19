@@ -6,7 +6,6 @@
   position: relative;
   padding: 47vw 0.03rem 0;
   // top: 0;
-  scroll-snap-align: center;
   .dotContainer {
     padding: .3rem 0;
     .dotOut {
@@ -48,6 +47,7 @@
     width: 100%;
     background-size: cover;
     aspect-ratio: 819/465;
+    height: calc((100vw - 0.06rem)/819*465);
     border: 2px solid #F6AC63;
   }
   .tvList {
@@ -57,10 +57,12 @@
       width: calc(50% - 0.02rem);
       aspect-ratio: 819/465;
       background-size: 100% 100%;
+      height: calc((((100vw - 0.06rem)/2) - 0.02rem)/819*465);
       filter: brightness(60%);
       margin-bottom: 0.05rem;
       &.active{
         filter: brightness(100%);
+        border: 1px solid #F6AC63;
       }
       &:active{
         transform: scale(0.95);

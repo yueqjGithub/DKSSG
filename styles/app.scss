@@ -16,7 +16,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 
 .hover-scale {

@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { Context } from '../../../store'
 import styles from './index.module.scss'
 type Props = {
@@ -26,8 +26,28 @@ const SectionFour = ({ banners }: Props) => {
       setCur(cur + 1)
     }
   }
+  const containerRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          console.log(containerRef.current!.offsetTop)
+          const container = document.querySelector('.m-page-container')
+          container!.scrollTo(0, containerRef.current!.offsetTop)
+        }
+      })
+    }, {
+      threshold: [0.15]
+    })
+    if (containerRef.current) {
+      io.observe(containerRef.current)
+    }
+    return () => {
+      io.disconnect()
+    }
+  }, [containerRef])
   return (
-    <div className={`${styles.container} flex-col flex-jst-start flex-ali-center`} style={{ backgroundImage: `url(${imgPrefix}/mobileImg/sec4BG.png)` }}>
+    <div ref={containerRef} className={`${styles.container} flex-col flex-jst-start flex-ali-center`} style={{ backgroundImage: `url(${imgPrefix}/mobileImg/sec4BG.png)` }}>
       <div className={styles.tv} style={{ backgroundImage: `url(${bannerList[cur].data})` }}></div>
       <div className={`${styles.tvList} flex-row flex-wrap flex-jst-btw flex-ali-start`}>
         {
