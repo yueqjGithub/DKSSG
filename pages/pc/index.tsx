@@ -15,6 +15,7 @@ import Script from "next/script"
 import { FbLogin } from "../../utils/fbLogin"
 import ShareModal from '../../components/pc/shareModal'
 import PrizeModal from '../../components/pc/prizeModal'
+import { useRouter } from "next/router"
 
 type Props = {
   shareLink: FixedContentItem<FixedTypeEnum.IMAGES>['content']
@@ -44,6 +45,8 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
     return showReserve ? sideTab : ['首頁', '業務特色', '員工簡歷']
   }, [showReserve])
 
+  const router = useRouter()
+  
   const timer = useRef<any>(null)
   // 获取滚轮事件
   const getDirection = (e: any) => {
@@ -88,6 +91,10 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
     }
   }
   useEffect(() => {
+    const w = document.documentElement.clientWidth
+    if (w < 750) {
+      router.push('/mobile')
+    }
     initUserId()
   })
   // 登录
