@@ -1,0 +1,47 @@
+.dialogContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .dialogOut {
+    padding: .1rem .45rem .18rem;
+    background-size: 100% 100%;
+    .title {
+      font-size: .18rem;
+      font-weight: bold;
+      padding: 0;
+      margin-bottom: .05rem;
+      text-align: center;
+    }
+    .content {
+      font-size: .16rem;
+      font-weight: 500;
+      line-height: 1.2;
+      text-align: center;
+      letter-spacing: .03rem;
+      margin-bottom: .1rem;
+      text-align: center;
+    }
+    .btn {
+      font-size: 0.16rem;
+      color: #000;
+      font-weight: bold;
+      background: #F6AC63;
+      padding: 0.05rem 0.15rem;
+      width: .8rem;
+      text-align: center;
+      border-radius: 3px;
+      border-bottom-right-radius: 10px;
+      border-top-left-radius: 10px;
+      box-shadow: 3px 3px 0px 0px rgb(0 0 0 / 40%);
+      white-space: nowrap;
+      cursor: pointer;
+    }
+  }
+}

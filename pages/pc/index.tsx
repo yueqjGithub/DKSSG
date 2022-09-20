@@ -16,6 +16,7 @@ import { FbLogin } from "../../utils/fbLogin"
 import ShareModal from '../../components/pc/shareModal'
 import PrizeModal from '../../components/pc/prizeModal'
 import { useRouter } from "next/router"
+import CusDialog from '../../components/common/dialog'
 
 type Props = {
   shareLink: FixedContentItem<FixedTypeEnum.IMAGES>['content']
@@ -37,7 +38,7 @@ type Props = {
 const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReserve, videoSource, reserves, fbAndInvite, banners, roleList }) => {
   const { state, dispatch } = useContext(Context)
   const contRef = useRef<any>()
-  const { currentScreen, sideTab, imgPrefix, denyScroll } = state
+  const { currentScreen, sideTab, imgPrefix, denyScroll, showDialog } = state
   const [sharePath, setSharePath] = useState<string>()
   const [showShare, setShowShare] = useState<boolean>(false)
   const [showPrize, setShowPrize] = useState<boolean>(false)
@@ -116,6 +117,7 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
       if (dispatch) {
         dispatch({ type: 'set', key: 'auth', val: { uid: _uid, token: _token } })
         dispatch({ type: 'set', key: 'isLogin', val: true })
+        dispatch({ type: 'set', key: 'showDialog', val: true })
         const { data: codeData } = await queryCode()
         dispatch && dispatch({ type: 'set', key: 'codes', val: codeData })
       }
@@ -221,6 +223,9 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
       openPrize={() => setShowPrize(true)}
     >
       <>
+        {
+          showDialog && <CusDialog />
+        }
         {
           showShare && <ShareModal sharePath={sharePath} closeHandler={() => setShowShare(false)}></ShareModal>
         }

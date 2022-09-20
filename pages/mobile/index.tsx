@@ -15,6 +15,7 @@ import SectionThree from '../../components/mobile/sectionThree'
 import ShareModal from "../../components/mobile/shareModal"
 import SectionFour from "../../components/mobile/sectionFour"
 import SectionFive from "../../components/mobile/sectionFive"
+import CusDialog from "../../components/common/dialog";
 
 type Props = {
   topData: {
@@ -38,7 +39,7 @@ type Props = {
 
 const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnList, reserves, fbAndInvite, banners, roleList, videoSource }) => {
   const { state, dispatch } = useContext(Context)
-  const { imgPrefix } = state
+  const { imgPrefix, showDialog } = state
   const touchRef = useRef<any>()
   const [sharePath, setSharePath] = useState<string>()
   const [showShare, setShowShare] = useState<boolean>(false)
@@ -82,6 +83,7 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
       if (dispatch) {
         dispatch({ type: 'set', key: 'auth', val: { uid: _uid, token: _token } })
         dispatch({ type: 'set', key: 'isLogin', val: true })
+        dispatch({ type: 'set', key: 'showDialog', val: true })
         try {
           const { data: codeData } = await queryCode()
           dispatch && dispatch({ type: 'set', key: 'codes', val: codeData })
@@ -132,6 +134,7 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
           alert(_res.message)
         }
       } catch (e) {
+        console.log(e)
         alert("SYS_ERROR:3")
       }
     }
@@ -205,6 +208,9 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
       openPrize={() => setShowPrize(true)}
     >
       <>
+        {
+          showDialog && <CusDialog />
+        }
         {
           showShare && <ShareModal sharePath={sharePath} closeHandler={() => setShowShare(false)}></ShareModal>
         }

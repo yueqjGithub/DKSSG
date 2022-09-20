@@ -14,6 +14,8 @@ export type InitStates = {
   [key: string]: any
   imgPrefix: string
   denyScroll: boolean
+  showDialog: boolean
+  dialogContent: string
 }
 
 export const globalInfo: InitStates = {
@@ -26,5 +28,7 @@ export const globalInfo: InitStates = {
   isLogin: false,
   codes: [],
   shareFrom: undefined,
-  denyScroll: false
+  denyScroll: false,
+  showDialog: false,
+  dialogContent: '登錄成功'
 }
