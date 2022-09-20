@@ -38,7 +38,7 @@ type Props = {
 const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReserve, videoSource, reserves, fbAndInvite, banners, roleList }) => {
   const { state, dispatch } = useContext(Context)
   const contRef = useRef<any>()
-  const { currentScreen, sideTab, imgPrefix, denyScroll, showDialog, sharePrefix } = state
+  const { currentScreen, sideTab, imgPrefix, denyScroll, showDialog, sharePrefix, frontBaseUrl } = state
   const [sharePath, setSharePath] = useState<string>()
   const [showShare, setShowShare] = useState<boolean>(false)
   const [showPrize, setShowPrize] = useState<boolean>(false)
@@ -109,7 +109,7 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
       if (state.shareFrom) {
         requestData['shareFrom'] = state.shareFrom
       }
-      const { data: _res } = await httpPost(urls.login, requestData)
+      const { data: _res } = await httpPost(`${frontBaseUrl}${urls.login}`, requestData)
       const _uid = _res.data.userId
       const _token = _res.data.token
       window.localStorage.setItem('uid', _uid)
@@ -132,7 +132,7 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
   // 查询兑换码
   const queryCode = async () => {
     try {
-      const { data: _res } = await httpGet(urls.getExchangeCode, {
+      const { data: _res } = await httpGet(`${frontBaseUrl}${urls.getExchangeCode}`, {
         userId: window.localStorage.getItem('uid'),
         token: window.localStorage.getItem('token')
       })
@@ -152,7 +152,7 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
       }
     } else { // 已登录但未预约-》预约
       try {
-        const { data: _res } = await httpGet(urls.doReserve, {
+        const { data: _res } = await httpGet(`${frontBaseUrl}${urls.doReserve}`, {
           userId: state.auth.uid,
           token: state.auth.token
         })
@@ -188,7 +188,7 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
       }
     } else {
       try {
-        const { data: _res } = await httpGet(urls.getInvite, {
+        const { data: _res } = await httpGet(`${frontBaseUrl}${urls.getInvite}`, {
           userId: state.auth.uid,
           token: state.auth.token,
           shareBaseUrl: `${window.location.origin}${sharePrefix || ''}`

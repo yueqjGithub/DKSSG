@@ -39,7 +39,7 @@ type Props = {
 
 const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnList, reserves, fbAndInvite, banners, roleList, videoSource }) => {
   const { state, dispatch } = useContext(Context)
-  const { imgPrefix, showDialog, sharePrefix } = state
+  const { imgPrefix, showDialog, sharePrefix, frontBaseUrl } = state
   const touchRef = useRef<any>()
   const [sharePath, setSharePath] = useState<string>()
   const [showShare, setShowShare] = useState<boolean>(false)
@@ -75,7 +75,7 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
       if (state.shareFrom) {
         requestData['shareFrom'] = state.shareFrom
       }
-      const { data: _res } = await httpPost(urls.login, requestData)
+      const { data: _res } = await httpPost(`${frontBaseUrl}${urls.login}`, requestData)
       const _uid = _res.data.userId
       const _token = _res.data.token
       window.localStorage.setItem('uid', _uid)
@@ -102,7 +102,7 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
   // 查询兑换码
   const queryCode = async () => {
     try {
-      const { data: _res } = await httpGet(urls.getExchangeCode, {
+      const { data: _res } = await httpGet(`${frontBaseUrl}${urls.getExchangeCode}`, {
         userId: window.localStorage.getItem('uid'),
         token: window.localStorage.getItem('token')
       })
@@ -122,7 +122,7 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
       }
     } else { // 已登录但未预约-》预约
       try {
-        const { data: _res } = await httpGet(urls.doReserve, {
+        const { data: _res } = await httpGet(`${frontBaseUrl}${urls.doReserve}`, {
           userId: state.auth.uid,
           token: state.auth.token
         })
@@ -157,7 +157,7 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
       }
     } else {
       try {
-        const { data: _res } = await httpGet(urls.getInvite, {
+        const { data: _res } = await httpGet(`${frontBaseUrl}${urls.getInvite}`, {
           userId: state.auth.uid,
           token: state.auth.token,
           shareBaseUrl: `${window.location.origin}${sharePrefix || ''}`
@@ -181,7 +181,7 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
   const [curDeg, setDeg] = useState<number>(2)
   const [count, setCount] = useState<number>(0)
   const getCountHandler = async () => {
-    const { data: res } = await httpGet(urls.getReserveCount)
+    const { data: res } = await httpGet(`${frontBaseUrl}${urls.getReserveCount}`)
     // console.log(res.data)
     const target = Math.floor(res.data / 10000)
     setCount(res.data)

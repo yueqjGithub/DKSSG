@@ -17,6 +17,7 @@ export type InitStates = {
   showDialog: boolean
   dialogContent: string
   sharePrefix?: string // 分享链接前缀,站點部署在二級域名時使用
+  frontBaseUrl: string
 }
 
 export const globalInfo: InitStates = {
@@ -32,5 +33,6 @@ export const globalInfo: InitStates = {
   denyScroll: false,
   showDialog: false,
   dialogContent: '登錄成功',
-  sharePrefix: process.env.NEXT_PUBLIC_PUBLIC_PREFIX
+  sharePrefix: process.env.NEXT_PUBLIC_PUBLIC_PREFIX,
+  frontBaseUrl: process.env.NEXT_PUBLIC_FRONT_BASE_URL!
 }
