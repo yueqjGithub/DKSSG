@@ -16,6 +16,7 @@ export type InitStates = {
   denyScroll: boolean
   showDialog: boolean
   dialogContent: string
+  sharePrefix?: string // 分享链接前缀,站點部署在二級域名時使用
 }
 
 export const globalInfo: InitStates = {
@@ -30,5 +31,6 @@ export const globalInfo: InitStates = {
   shareFrom: undefined,
   denyScroll: false,
   showDialog: false,
-  dialogContent: '登錄成功'
+  dialogContent: '登錄成功',
+  sharePrefix: process.env.NEXT_PUBLIC_PUBLIC_PREFIX
 }

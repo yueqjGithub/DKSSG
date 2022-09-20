@@ -39,7 +39,7 @@ type Props = {
 
 const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnList, reserves, fbAndInvite, banners, roleList, videoSource }) => {
   const { state, dispatch } = useContext(Context)
-  const { imgPrefix, showDialog } = state
+  const { imgPrefix, showDialog, sharePrefix } = state
   const touchRef = useRef<any>()
   const [sharePath, setSharePath] = useState<string>()
   const [showShare, setShowShare] = useState<boolean>(false)
@@ -156,7 +156,7 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
         const { data: _res } = await httpGet(urls.getInvite, {
           userId: state.auth.uid,
           token: state.auth.token,
-          shareBaseUrl: window.location.origin
+          shareBaseUrl: `${window.location.origin}${sharePrefix || ''}`
         })
         if (_res.status === 0) {
           setSharePath(_res.data)
