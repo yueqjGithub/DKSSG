@@ -37,24 +37,24 @@ const SectionOne = ({ count, showReserve, loginHandler, downBtnList, video }: Pr
     }
   }
   const vRef = useRef<HTMLVideoElement>(null)
-  const setVideoSize = () => {
-    let v = document.createElement('video')
-    v.setAttribute('preload', 'true')
-    v.src = video.data
-    v.onloadeddata = () => {
-      const w = v.videoWidth
-      const h = v.videoHeight
-      const cH = window.innerHeight
-      const cW = window.innerWidth
-      setInfo({
-        width: w >= cW ? cW * 0.7 : v.videoWidth,
-        height: h >= cH ? cH * 0.9 : v.videoHeight
-      })
-    }
-  }
-  useEffect(() => {
-    setVideoSize()
-  }, [])
+  // const setVideoSize = () => {
+  //   let v = document.createElement('video')
+  //   v.setAttribute('preload', 'true')
+  //   v.src = video.data
+  //   v.onloadeddata = () => {
+  //     const w = v.videoWidth
+  //     const h = v.videoHeight
+  //     const cH = window.innerHeight
+  //     const cW = window.innerWidth
+  //     setInfo({
+  //       width: w >= cW ? cW * 0.7 : v.videoWidth,
+  //       height: h >= cH ? cH * 0.9 : v.videoHeight
+  //     })
+  //   }
+  // }
+  // useEffect(() => {
+  //   setVideoSize()
+  // }, [])
   const containerRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
     const io = new IntersectionObserver(entries => {
@@ -82,7 +82,7 @@ const SectionOne = ({ count, showReserve, loginHandler, downBtnList, video }: Pr
       {
         isPlay && (
           <div className={styles.videoModal}>
-            <video ref={vRef} autoPlay={true} preload="true" loop controls={true} width={videoInfo.width} height={videoInfo.height} style={{ background: '#000' }}>
+            <video ref={vRef} autoPlay={true} preload="true" loop controls={true} width={'100vw'} style={{ background: '#000' }}>
               <source src={video.data} />
             </video>
             <img src={`${imgPrefix}/pc/sec3/closeBtn.png`} alt="" onClick={() => setPlay(false)} style={{ width: '50%', marginTop: '.1rem' }} className='click-scale'/>
