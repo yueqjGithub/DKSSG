@@ -34,5 +34,5 @@ export const globalInfo: InitStates = {
   showDialog: false,
   dialogContent: '登錄成功',
   sharePrefix: process.env.NEXT_PUBLIC_PUBLIC_PREFIX,
-  frontBaseUrl: process.env.NEXT_PUBLIC_FRONT_BASE_URL!
+  frontBaseUrl: process.env.NEXT_PUBLIC_FRONT_REQUEST_HOST!
 }
