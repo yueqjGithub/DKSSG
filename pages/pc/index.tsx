@@ -121,8 +121,12 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
         const { data: codeData } = await queryCode()
         dispatch && dispatch({ type: 'set', key: 'codes', val: codeData })
       }
-    } catch (e) {
-      alert("SYS_ERROR:1")
+    } catch (e: any) {
+      if (e.message) {
+        alert(e.message)
+      } else {
+        alert("SYS_ERROR:3")
+      }
     }
   }
   // 查询兑换码

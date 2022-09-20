@@ -91,8 +91,12 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
           console.log('登录后获取code失败')
         }
       }
-    } catch (e) {
-      alert("SYS_ERROR:1")
+    } catch (e: any) {
+      if (e.message) {
+        alert(e.message)
+      } else {
+        alert("SYS_ERROR:3")
+      }
     }
   }
   // 查询兑换码
