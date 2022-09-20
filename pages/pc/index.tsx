@@ -152,6 +152,7 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
           userId: state.auth.uid,
           token: state.auth.token
         })
+        debugger
         if (_res.status === 0) {
           const copy = [...state.codes]
           const al = copy.find(item => item.codeType === 'RESERVE')
@@ -163,8 +164,12 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
         } else {
           alert(_res.message)
         }
-      } catch (e) {
-        alert("SYS_ERROR:3")
+      } catch (e: any) {
+        if (e.message) {
+          alert(e.message)
+        } else {
+          alert("SYS_ERROR:3")
+        }
       }
     }
   }
@@ -190,8 +195,12 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
         } else {
           alert(_res.message)
         }
-      } catch (e) {
-        alert("SYS_ERROR:4")
+      } catch (e: any) {
+        if (e.message) {
+          alert(e.message)
+        } else {
+          alert("SYS_ERROR:4")
+        }
       }
     }
   }

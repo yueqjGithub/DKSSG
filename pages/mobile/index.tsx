@@ -133,9 +133,12 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
         } else {
           alert(_res.message)
         }
-      } catch (e) {
-        console.log(e)
-        alert("SYS_ERROR:3")
+      } catch (e: any) {
+        if (e.message) {
+          alert(e.message)
+        } else {
+          alert("SYS_ERROR:3")
+        }
       }
     }
   }
@@ -161,8 +164,12 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
         } else {
           alert(_res.message)
         }
-      } catch (e) {
-        alert("SYS_ERROR:4")
+      } catch (e: any) {
+        if (e.message) {
+          alert(e.message)
+        } else {
+          alert("SYS_ERROR:4")
+        }
       }
     }
   }
