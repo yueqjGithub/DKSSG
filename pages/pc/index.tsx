@@ -233,7 +233,10 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
       downBtnList={downBtnList}
       qrcode={qrcodeList[0]}
       showReserve={showReserve}
-      openPrize={() => setShowPrize(true)}
+      openPrize={async () => {
+        await getCode()
+        setShowPrize(true)
+      }}
     >
       <>
         {
@@ -260,23 +263,6 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
           <SectionFour banners={banners}></SectionFour>
           <SectionFive roleList={roleList}></SectionFive>
           <div className={styles.footer}>
-            {/* <div className={styles.followTit}>FOLLOW US</div>
-            <div className={styles.shareList}>
-              <div className={`${styles.shareItem} ${styles.shareWx}`} onClick={() => window.open('https://www.youtube.com/channel/UCMqPPCyC6sS27FM6ZzkBrGA')}>
-                  <img className={styles.shareIcon} src={`${imgPrefix}/pc/btm/share_ytb.png`} alt="" />
-              </div>
-              <div className={`${styles.shareItem} ${styles.shareBl}`} onClick={() => window.open('https://discord.gg/SzECKcDAzA')}>
-                  <img className={styles.shareIcon} src={`${imgPrefix}/pc/btm/share_gm.png`} alt="" />
-              </div>
-              <div className={`${styles.shareItem} ${styles.shareDy}`} onClick={() => window.open('https://www.tiktok.com/@avalongamesofficial')}>
-                  <img className={styles.shareIcon} src={`${imgPrefix}/pc/btm/share_dy.png`} alt="" />
-              </div>
-              <div className={`${styles.shareItem} ${styles.shareQq}`} onClick={() => window.open('https://space.bilibili.com/1957566079')}>
-                  <img className={styles.shareIcon} src={`${imgPrefix}/pc/btm/share_bl.png`} alt="" />
-              </div>
-            </div>
-            <p className={styles.btmEmail}>Contact Us: bd@avalongames.cn</p>
-            <div className={styles.btmSplitLine}></div> */}
             <div className={styles.introdcution}>
               <div className={styles.introEn}>
                 <div>© 2022.All RIGHTS RESERVED</div>

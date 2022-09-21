@@ -216,7 +216,10 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
       topData={topData}
       reserveHandler={getCode}
       shareLink={shareLink}
-      openPrize={() => setShowPrize(true)}
+      openPrize={async () => {
+        await getCode()
+        setShowPrize(true)
+      }}
     >
       <>
         {

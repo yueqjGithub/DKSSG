@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
   useEffect(() => {
     if (window.location.search) {
-      state.shareFrom = window.location.search.substring(1)
+      state.shareFrom = window.location.href
     }
     const wd = document.body.clientWidth
     const path = router.pathname
