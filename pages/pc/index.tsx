@@ -125,7 +125,7 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
       if (e.message) {
         alert(e.message)
       } else {
-        alert("SYS_ERROR:3")
+        alert("登錄失敗，請重新嘗試")
       }
     }
   }
@@ -138,7 +138,7 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
       })
       return _res
     } catch (e) {
-      alert("SYS_ERROR:2_查詢兌換碼失敗")
+      alert("查詢兌換碼失敗")
     }
   }
   // 获取已有兑换码
@@ -156,7 +156,6 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
           userId: state.auth.uid,
           token: state.auth.token
         })
-        debugger
         if (_res.status === 0) {
           const copy = [...state.codes]
           const al = copy.find(item => item.codeType === 'RESERVE')
@@ -172,7 +171,7 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
         if (e.message) {
           alert(e.message)
         } else {
-          alert("SYS_ERROR:3")
+          alert("預約失敗，請稍後再試")
         }
       }
     }
@@ -203,7 +202,7 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
         if (e.message) {
           alert(e.message)
         } else {
-          alert("SYS_ERROR:4")
+          alert("獲取邀請鏈接失敗，請重試")
         }
       }
     }

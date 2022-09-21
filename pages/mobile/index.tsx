@@ -95,7 +95,7 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
       if (e.message) {
         alert(e.message)
       } else {
-        alert("SYS_ERROR:3")
+        alert("登錄失敗，請重新嘗試")
       }
     }
   }
@@ -108,7 +108,7 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
       })
       return _res
     } catch (e) {
-      alert("SYS_ERROR:2_查詢兌換碼出錯")
+      alert("查詢兌換碼出錯")
     }
   }
   // 获取已有兑换码
@@ -141,7 +141,7 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
         if (e.message) {
           alert(e.message)
         } else {
-          alert("SYS_ERROR:3")
+          alert("查詢兌換碼出錯")
         }
       }
     }
@@ -172,7 +172,7 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
         if (e.message) {
           alert(e.message)
         } else {
-          alert("SYS_ERROR:4")
+          alert("生成邀請鏈接失敗，請重試")
         }
       }
     }
