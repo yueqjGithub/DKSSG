@@ -19,7 +19,7 @@ type Props = {
 
 const MobileLayout = ({ children, topData, showReserve, reserveHandler, shareLink, openPrize }: Props) => {
   const { state, dispatch } = useContext(Context)
-  const { isLogin, codes, imgPrefix } = state
+  const { isLogin, codes, imgPrefix, frontBaseUrl } = state
   const [expand, setExpand] = useState<boolean>(false)
   const alreadyReserve = useMemo(() => {
     return codes?.find(item => item.codeType === 'RESERVE') !== undefined
@@ -31,10 +31,18 @@ const MobileLayout = ({ children, topData, showReserve, reserveHandler, shareLin
   }, [dispatch, showReserve])
   const logoutHandler = async () => {
     window.FB.logout(async function () {
-      const { data } = await httpPost(urls.logout, {
+      const { data } = await httpPost(`${frontBaseUrl}${urls.logout}`, {
         token: localStorage.getItem('token'),
         userId: localStorage.getItem('uid')
       })
+      window.localStorage.removeItem('token')
+      window.localStorage.removeItem('uid')
+      if (dispatch) {
+        dispatch({ type: 'set', key: 'isLogin', val: false })
+        dispatch({ type: 'set', key: 'codes', val: [] })
+        dispatch({ type: 'set', key: 'auth', val: undefined })
+      }
+    }, function () {
       window.localStorage.removeItem('token')
       window.localStorage.removeItem('uid')
       if (dispatch) {

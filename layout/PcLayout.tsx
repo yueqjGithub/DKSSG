@@ -16,7 +16,7 @@ type Props = {
 const PcLayout = ({ children, shareLink, downBtnList, qrcode, showReserve, openPrize }: Props) => {
   const { state, dispatch } = useContext(Context)
   const { isLogin, imgPrefix } = state
-  const { sideExpand, currentScreen, sideTab } = state
+  const { sideExpand, currentScreen, sideTab, frontBaseUrl } = state
   useEffect(() => {
     if (dispatch) {
       dispatch({ type: 'set', key: 'showReserve', val: showReserve })
@@ -37,10 +37,18 @@ const PcLayout = ({ children, shareLink, downBtnList, qrcode, showReserve, openP
   }
   const logoutHandler = async () => {
     window.FB.logout(async function () {
-      const { data } = await httpPost(urls.logout, {
+      const { data } = await httpPost(`${frontBaseUrl}${urls.logout}`, {
         token: localStorage.getItem('token'),
         userId: localStorage.getItem('uid')
       })
+      window.localStorage.removeItem('token')
+      window.localStorage.removeItem('uid')
+      if (dispatch) {
+        dispatch({ type: 'set', key: 'isLogin', val: false })
+        dispatch({ type: 'set', key: 'codes', val: [] })
+        dispatch({ type: 'set', key: 'auth', val: undefined })
+      }
+    }, function () {
       window.localStorage.removeItem('token')
       window.localStorage.removeItem('uid')
       if (dispatch) {
