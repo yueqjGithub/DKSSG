@@ -45,6 +45,7 @@ const PcLayout = ({ children, shareLink, downBtnList, qrcode, showReserve, openP
           })
           window.localStorage.removeItem('token')
           window.localStorage.removeItem('uid')
+          window.localStorage.removeItem('shareFrom')
           if (dispatch) {
             dispatch({ type: 'set', key: 'isLogin', val: false })
             dispatch({ type: 'set', key: 'codes', val: [] })
@@ -59,6 +60,7 @@ const PcLayout = ({ children, shareLink, downBtnList, qrcode, showReserve, openP
           })
           window.localStorage.removeItem('token')
           window.localStorage.removeItem('uid')
+          window.localStorage.removeItem('shareFrom')
           if (dispatch) {
             dispatch({ type: 'set', key: 'isLogin', val: false })
             dispatch({ type: 'set', key: 'codes', val: [] })
@@ -67,6 +69,7 @@ const PcLayout = ({ children, shareLink, downBtnList, qrcode, showReserve, openP
         })
       } else {
         window.localStorage.removeItem('token')
+        window.localStorage.removeItem('shareFrom')
         window.localStorage.removeItem('uid')
         if (dispatch) {
           dispatch({ type: 'set', key: 'isLogin', val: false })

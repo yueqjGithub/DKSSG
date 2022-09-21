@@ -39,6 +39,7 @@ const MobileLayout = ({ children, topData, showReserve, reserveHandler, shareLin
           })
           window.localStorage.removeItem('token')
           window.localStorage.removeItem('uid')
+          window.localStorage.removeItem('shareFrom')
           if (dispatch) {
             dispatch({ type: 'set', key: 'isLogin', val: false })
             dispatch({ type: 'set', key: 'codes', val: [] })
@@ -52,6 +53,7 @@ const MobileLayout = ({ children, topData, showReserve, reserveHandler, shareLin
             userId: localStorage.getItem('uid')
           })
           window.localStorage.removeItem('token')
+          window.localStorage.removeItem('shareFrom')
           window.localStorage.removeItem('uid')
           if (dispatch) {
             dispatch({ type: 'set', key: 'isLogin', val: false })
@@ -62,6 +64,7 @@ const MobileLayout = ({ children, topData, showReserve, reserveHandler, shareLin
       } else {
         window.localStorage.removeItem('token')
         window.localStorage.removeItem('uid')
+        window.localStorage.removeItem('shareFrom')
         if (dispatch) {
           dispatch({ type: 'set', key: 'isLogin', val: false })
           dispatch({ type: 'set', key: 'codes', val: [] })
