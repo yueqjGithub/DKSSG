@@ -1,7 +1,6 @@
 .modal{
   width: 100vw;
   min-height: 100vh;
-  padding-bottom: 1rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -19,6 +18,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    zoom: 0.88;
     .title{
       font-size: 0.3rem;
       color: #000;
@@ -92,6 +92,6 @@
   }
   .closeBtn {
     width: 50vw;
-    margin-top: 0.5rem;
+    margin-top: 0.25rem;
   }
 }
