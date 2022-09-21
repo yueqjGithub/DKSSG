@@ -143,6 +143,7 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
   }
   // 获取已有兑换码
   const getCode = async () => {
+    console.log(state.shareFrom)
     if (!state.auth?.uid) { // 未登录
       const toLogin = confirm('請先登錄')
       if (toLogin) {
