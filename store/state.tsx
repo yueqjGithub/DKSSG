@@ -25,7 +25,7 @@ export const globalInfo: InitStates = {
   sideExpand: true,
   showReserve: false,
   currentScreen: 0,
-  sideTab: ['首頁', '裏程碑', '任務', '業務特色', '員工簡歷'],
+  sideTab: ['首頁', '里程碑', '任務', '業務特色', '員工簡歷'],
   auth: undefined,
   isLogin: false,
   codes: [],
