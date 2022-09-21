@@ -74,8 +74,7 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
         platformUid: res.result.uid
       }
       if (shareFrom) {
-        requestData['shareFrom'] = shareFrom
-        console.log(requestData.shareFrom)
+        requestData['shareLink'] = shareFrom
       }
       const { data: _res } = await httpPost(`${frontBaseUrl}${urls.login}`, requestData)
       const _uid = _res.data.userId
