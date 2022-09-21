@@ -29,14 +29,14 @@ const prizeList = [
 
 const SectionTwo = ({reserves, loginHandler}: Props) => {
   const { state } = useContext(Context)
-  const { codes, isLogin, imgPrefix } = state
+  const { codes, isLogin, imgPrefix, frontBaseUrl } = state
   const alreadyReserve = useMemo(() => {
     return codes.find(item => item.codeType === 'RESERVE') !== undefined
   }, [codes])
   const [curDeg, setDeg] = useState<number>(2)
   const [count, setCount] = useState<number>(0)
   const getCountHandler = async () => {
-    const { data: res } = await httpGet(urls.getReserveCount)
+    const { data: res } = await httpGet(`${frontBaseUrl}${urls.getReserveCount}`)
     // console.log(res.data)
     const target = Math.floor(res.data / 10000)
     setCount(res.data)
