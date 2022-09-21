@@ -30,12 +30,22 @@ const MobileLayout = ({ children, topData, showReserve, reserveHandler, shareLin
     }
   }, [dispatch, showReserve])
   const logoutHandler = async () => {
-    try {
-      window.FB.logout(async function () {
-        const { data } = await httpPost(`${frontBaseUrl}${urls.logout}`, {
-          token: localStorage.getItem('token'),
-          userId: localStorage.getItem('uid')
+    window.FB.getLoginStatus(function(response: { status: string }) {
+      if (response.status === 'connected') {
+        window.FB.logout(async function () {
+          const { data } = await httpPost(`${frontBaseUrl}${urls.logout}`, {
+            token: localStorage.getItem('token'),
+            userId: localStorage.getItem('uid')
+          })
+          window.localStorage.removeItem('token')
+          window.localStorage.removeItem('uid')
+          if (dispatch) {
+            dispatch({ type: 'set', key: 'isLogin', val: false })
+            dispatch({ type: 'set', key: 'codes', val: [] })
+            dispatch({ type: 'set', key: 'auth', val: undefined })
+          }
         })
+      } else {
         window.localStorage.removeItem('token')
         window.localStorage.removeItem('uid')
         if (dispatch) {
@@ -43,16 +53,8 @@ const MobileLayout = ({ children, topData, showReserve, reserveHandler, shareLin
           dispatch({ type: 'set', key: 'codes', val: [] })
           dispatch({ type: 'set', key: 'auth', val: undefined })
         }
-      })
-    } catch {
-      window.localStorage.removeItem('token')
-      window.localStorage.removeItem('uid')
-      if (dispatch) {
-        dispatch({ type: 'set', key: 'isLogin', val: false })
-        dispatch({ type: 'set', key: 'codes', val: [] })
-        dispatch({ type: 'set', key: 'auth', val: undefined })
       }
-    }
+     });
   }
   const openLink = (link?: string) => {
     if (link) {
