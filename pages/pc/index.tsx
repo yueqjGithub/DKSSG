@@ -234,7 +234,8 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
       qrcode={qrcodeList[0]}
       showReserve={showReserve}
       openPrize={async () => {
-        await getCode()
+        const { data: codeData } = await queryCode()
+        dispatch && dispatch({ type: 'set', key: 'codes', val: codeData })
         setShowPrize(true)
       }}
     >

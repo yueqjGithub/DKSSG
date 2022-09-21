@@ -218,7 +218,8 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
       reserveHandler={getCode}
       shareLink={shareLink}
       openPrize={async () => {
-        await getCode()
+        const { data: codeData } = await queryCode()
+        dispatch && dispatch({ type: 'set', key: 'codes', val: codeData })
         setShowPrize(true)
       }}
     >
