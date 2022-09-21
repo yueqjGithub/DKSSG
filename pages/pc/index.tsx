@@ -106,8 +106,9 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
         accessToken: res.result.accessToken,
         platformUid: res.result.uid
       }
-      if (state.shareFrom) {
-        requestData['shareFrom'] = state.shareFrom
+      if (window.location.search) {
+        requestData['shareFrom'] = `${window.location.origin}${window.location.search}`
+        console.log(requestData.shareFrom)
       }
       const { data: _res } = await httpPost(`${frontBaseUrl}${urls.login}`, requestData)
       const _uid = _res.data.userId
@@ -143,7 +144,6 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
   }
   // 获取已有兑换码
   const getCode = async () => {
-    console.log(state.shareFrom)
     if (!state.auth?.uid) { // 未登录
       const toLogin = confirm('請先登錄')
       if (toLogin) {
