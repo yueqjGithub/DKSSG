@@ -51,6 +51,20 @@ const PcLayout = ({ children, shareLink, downBtnList, qrcode, showReserve, openP
             dispatch({ type: 'set', key: 'auth', val: undefined })
           }
         })
+      } else if (response.status === 'not_authorized') {
+        window.FB.logout(async function () {
+          const { data } = await httpPost(`${frontBaseUrl}${urls.logout}`, {
+            token: localStorage.getItem('token'),
+            userId: localStorage.getItem('uid')
+          })
+          window.localStorage.removeItem('token')
+          window.localStorage.removeItem('uid')
+          if (dispatch) {
+            dispatch({ type: 'set', key: 'isLogin', val: false })
+            dispatch({ type: 'set', key: 'codes', val: [] })
+            dispatch({ type: 'set', key: 'auth', val: undefined })
+          }
+        })
       } else {
         window.localStorage.removeItem('token')
         window.localStorage.removeItem('uid')
