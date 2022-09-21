@@ -35,7 +35,7 @@ export const FbLogin = () => {
           } else {
             reject('登录失败2：用户取消登录或未知错误')
           }
-        })
+        }, {scope: 'public_profile,email'})
       } else {
         window.FB.login(function (response1: any) {
           console.log("3++", response1)
@@ -49,7 +49,7 @@ export const FbLogin = () => {
           } else {
             reject('登录失败3：用户取消登录或未知错误')
           }
-        })
+        }, {scope: 'public_profile,email'})
       }
     })
   })
