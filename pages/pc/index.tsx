@@ -100,14 +100,15 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
   })
   // 登录
   const loginHandler = async () => {
+    const shareFrom = window.localStorage.getItem('shareFrom')
     try {
       const res = await FbLogin()
       const requestData:any = {
         accessToken: res.result.accessToken,
         platformUid: res.result.uid
       }
-      if (window.location.search) {
-        requestData['shareFrom'] = `${window.location.origin}${window.location.search}`
+      if (shareFrom) {
+        requestData['shareFrom'] = shareFrom
         console.log(requestData.shareFrom)
       }
       const { data: _res } = await httpPost(`${frontBaseUrl}${urls.login}`, requestData)

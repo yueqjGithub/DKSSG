@@ -9,9 +9,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   const { state } = useContext(Context)
   const router = useRouter()
   useEffect(() => {
-    // if (window.location.search) {
-    //   state.shareFrom = window.location.href
-    // }
+    if (window.location.search) {
+      localStorage.setItem('shareFrom', window.location.href)
+    }
     const wd = document.body.clientWidth
     const path = router.pathname
     if (path === '/') {
