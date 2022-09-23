@@ -38,7 +38,7 @@ const SectionTwo = ({reserves, loginHandler}: Props) => {
   const getCountHandler = async () => {
     const { data: res } = await httpGet(`${frontBaseUrl}${urls.getReserveCount}`)
     // console.log(res.data)
-    const target = Math.floor(res.data / 10000)
+    const target = Math.floor(res.data / 100000)
     setCount(res.data)
     setDeg(target)
   }

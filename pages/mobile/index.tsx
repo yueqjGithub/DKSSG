@@ -184,7 +184,7 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
   const getCountHandler = async () => {
     const { data: res } = await httpGet(`${frontBaseUrl}${urls.getReserveCount}`)
     // console.log(res.data)
-    const target = Math.floor(res.data / 10000)
+    const target = Math.floor(res.data / 100000)
     setCount(res.data)
     setDeg(target)
   }
@@ -193,6 +193,21 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
       getCountHandler()
     }
   }, [showReserve])
+  // 奖励查询
+  const queryPrize = async () => {
+    if (!state.auth?.uid) { // 未登录
+      const toLogin = confirm('請先登錄')
+      if (toLogin) {
+        loginHandler()
+      } else {
+        return false
+      }
+    } else {
+      const { data: codeData } = await queryCode()
+      dispatch && dispatch({ type: 'set', key: 'codes', val: codeData })
+      setShowPrize(true)
+    }
+  }
   return (
     <>
      <Script
@@ -217,11 +232,7 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
       topData={topData}
       reserveHandler={getCode}
       shareLink={shareLink}
-      openPrize={async () => {
-        const { data: codeData } = await queryCode()
-        dispatch && dispatch({ type: 'set', key: 'codes', val: codeData })
-        setShowPrize(true)
-      }}
+      openPrize={queryPrize}
     >
       <>
         {

@@ -208,6 +208,22 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
       }
     }
   }
+  
+  // 奖励查询
+  const queryPrize = async () => {
+    if (!state.auth?.uid) { // 未登录
+      const toLogin = confirm('請先登錄')
+      if (toLogin) {
+        loginHandler()
+      } else {
+        return false
+      }
+    } else {
+      const { data: codeData } = await queryCode()
+      dispatch && dispatch({ type: 'set', key: 'codes', val: codeData })
+      setShowPrize(true)
+    }
+  }
   // 打開獎勵彈窗
   return (
     <>
@@ -233,11 +249,7 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
       downBtnList={downBtnList}
       qrcode={qrcodeList[0]}
       showReserve={showReserve}
-      openPrize={async () => {
-        const { data: codeData } = await queryCode()
-        dispatch && dispatch({ type: 'set', key: 'codes', val: codeData })
-        setShowPrize(true)
-      }}
+      openPrize={queryPrize}
     >
       <>
         {

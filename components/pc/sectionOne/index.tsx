@@ -10,8 +10,8 @@ type Props = {
 }
 
 type VideoPx = {
-  width: number
-  height: number
+  width?: number
+  height?: number
 }
 
 const SectionOne = ({ video, loginHandler }: Props) => {
@@ -42,10 +42,16 @@ const SectionOne = ({ video, loginHandler }: Props) => {
       const h = v.videoHeight
       const cH = window.innerHeight
       const cW = window.innerWidth
-      setInfo({
-        width: w >= cW ? cW * 0.7 : v.videoWidth,
-        height: h >= cH ? cH * 0.9 : v.videoHeight
-      })
+      if (w >= cW) {
+        setInfo({
+          width: cW * 0.7
+        })
+      }
+      if (h > cH) {
+        setInfo({
+          height: cH * 0.7
+        })
+      }
     }
   }
   useEffect(() => {
