@@ -39,7 +39,7 @@ const PrizeModal = ({ closeHandler }: Props) => {
   return (
     <div className={`${styles.modal} cus-slide-top-in`}>
       <div className={styles.contModal} style={{ backgroundImage: `url(${imgPrefix}/mobileImg/modalBg.png)` }}>
-        <p className={styles.title}>《摩爾街之王》事前登錄</p>
+        <p className={styles.title}>《魔爾街之王》事前登錄</p>
         <div className={styles.cusSplit}></div>
         <div className={`${styles.copyContainer} flex-row flex-jst-btw flex-ali-center flex-wrap`}>
           {

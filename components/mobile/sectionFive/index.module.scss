@@ -21,14 +21,14 @@
   }
   .roleContainer {
     width: 100vw;
-    height: 100vh;
-    background-size: 100%;
-    background-position: top center;
-    position: absolute;
+    // height: 100vh;
+    // background-size: 100%;
+    // background-position: top center;
+    // position: absolute;
     top: 0;
     left: 0;
     z-index: 6;
-    background-repeat: no-repeat;
+    // background-repeat: no-repeat;
     &.show {
       display: block;
     }

@@ -69,11 +69,12 @@ const SectionFive = ({ roleList }: Props) => {
       {
         roleImgList.map((item, idx) => {
           return (
-            <div
-            className={`${styles.roleContainer} cus-slide-left-in ${idx === cur ? styles.show : styles.hide }`}
-            style={{ backgroundImage: `url('${item.data}')` }}
-            key={idx}>
-            </div>
+            // <div
+            // className={`${styles.roleContainer} cus-slide-left-in ${idx === cur ? styles.show : styles.hide }`}
+            // style={{ backgroundImage: `url('${item.data}')` }}
+            // key={idx}>
+            // </div>
+            <img src={item.data} key={idx} alt="" className={`${styles.roleContainer} cus-slide-left-in ${idx === cur ? styles.show : styles.hide }`}/>
           )
         })
       }

@@ -27,9 +27,10 @@ const rules = {
   },
   invite: {
     join: [
-      '1. 活動時間：即日起至全平台上線當天00:00，上線時間請留意官方後續發佈的公告。（以GMT+8時區為準）',
-      '2. 若官方Facebook主頁追蹤人數突破2萬人，遊戲上線後全伺服器玩家都將獲得對應獎勵；',
-      '3. 若官方Facebook主頁點讚人數突破2萬人，遊戲上線後全伺服器玩家都將獲得對應獎勵；'
+      '1. 活動時間：即日起至全平台上線當天00:00，上線時間請留意官方後續發佈的公告。（以GMT+8時區為準）；',
+      '2. 玩家需要先點擊“我要應徵”進行預約，再進行邀請好友操作；',
+      '3. 好友通過玩家專屬追蹤鏈接點擊進行預約後，視為成功邀請；',
+      '4. 可以通過首頁“獎勵查詢”按鈕查詢到相應禮包碼，在遊戲上線後即可使用。'
     ],
     care: [
       '1. 若活動期間經理遇到任何問題，請透過官方電子郵件信箱尋求幫助：cs.monsteroverload@avalongames.com；',
@@ -159,7 +160,7 @@ const SectionThree = ({ fbAndInvite, inviteHandler }: Props) => {
         <div className={`${styles.lineContainer} flex-row flex-jst-center flex-ali-center`}>
           <img src={`${imgPrefix}/pc/sec3/c_line.png`} alt="" />
           <div className={`${styles.ruleTips} ${styles.ruleTipsR} flex-row flex-jst-center flex-ali-center`}>
-            <p>*社群平台關注達成獎勵</p>
+            <p>*邀請好友拿入職大禮</p>
             <img src={`${imgPrefix}/pc/sec3/symbol.png`} alt=""  className='cursor-pointer click-scale'  onClick={() => openRule('invite')}/>
           </div>
           <img src={`${imgPrefix}/pc/sec3/c_line.png`} alt="" />
