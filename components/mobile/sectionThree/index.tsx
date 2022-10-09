@@ -88,13 +88,13 @@ const SectionThree = ({ fbAndInvite, inviteHandler }: Props) => {
         showRule && (
           <div className={`${styles.ruleContainer} cus-slide-top-in flex-col flex-jst-center flex-ali-center`}>
             <div className={`${styles.ruleContent} flex-col flex-jst-center flex-ali-center`} style={{ backgroundImage: `url(${imgPrefix}/mobileImg/modalBg.png)` }}>
-              <p className={styles.ruleTit}>参与方式</p>
+              <p className={styles.ruleTit}>參與方式</p>
               {
                 curRule.join.map((item, index) => {
                   return <p key={index} className={styles.ruleDetail}>{item}</p>
                 })
               }
-              <p className={styles.ruleTit}>注意事项</p>
+              <p className={styles.ruleTit}>注意事項</p>
               {
                 curRule.care.map((item, index) => {
                   return <p key={index} className={styles.ruleDetail}>{item}</p>
