@@ -60,7 +60,7 @@ const PrizeModal = ({ closeHandler }: Props) => {
             <div className={styles.rulesOut}>虛寶碼使用說明：進入遊戲後，點擊頭像，進入個人設置界面，輸入對應虛寶碼後即可領取獎勵。</div>
           </div>
           <div className={styles.tips}>
-          *集结奖励和关注奖励将在正式开服后发放给全服务器玩家
+          *集結獎勵和關注獎勵將在正式開服後發放給全服務器玩家
           </div>
         </div>
       </div>

@@ -19,19 +19,19 @@ const rules = {
   fb: {
     join: [
       '1. 活動時間：即日起至全平台上線當天00:00，上線時間請留意官方後續發佈的公告。（以GMT+8時區為準）',
-      '2. 若官方Facebook主頁追蹤人數突破2萬人，遊戲上線後全伺服器玩家都將獲得對應獎勵；',
-      '3. 若官方Facebook主頁點讚人數突破2萬人，遊戲上線後全伺服器玩家都將獲得對應獎勵；'
+      '2. 若官方Facebook主頁追蹤人數突破2萬人，遊戲上線後全伺服器玩家都將獲得對應獎勵。',
+      '3. 若官方Facebook主頁點讚人數突破2萬人，遊戲上線後全伺服器玩家都將獲得對應獎勵。'
     ],
     care: [
-      '1. 若活動期間經理遇到任何問題，請透過官方電子郵件信箱尋求幫助：cs.monsteroverload@avalongames.com；',
+      '1. 若活動期間經理遇到任何問題，請透過官方電子郵件信箱尋求幫助：cs.monsteroverload@avalongames.com。',
       '2. AvalonGames保留法律允許範圍內對活動進行補充解釋的權利。'
     ]
   },
   invite: {
     join: [
-      '1. 活動時間：即日起至全平台上線當天00:00，上線時間請留意官方後續發佈的公告。（以GMT+8時區為準）；',
+      '1. 活動時間：即日起至全平台上線當天00:00，上線時間請留意官方後續發布的公告。 （以GMT+8時區為準）；',
       '2. 玩家需要先點擊“我要應徵”進行預約，再進行邀請好友操作；',
-      '3. 好友通過玩家專屬追蹤鏈接點擊進行預約後，視為成功邀請；',
+      '3. 好友通過玩家專屬追踪鏈接點擊進行預約後，視為成功邀請；',
       '4. 可以通過首頁“獎勵查詢”按鈕查詢到相應禮包碼，在遊戲上線後即可使用。'
     ],
     care: [
@@ -68,13 +68,13 @@ const SectionThree = ({ fbAndInvite, inviteHandler }: Props) => {
         showRule && (
           <div className={`${styles.ruleContainer} cus-slide-top-in flex-col flex-jst-center flex-ali-center`}>
             <div className={`${styles.ruleContent} flex-col flex-jst-center flex-ali-center`} style={{ backgroundImage: `url(${imgPrefix}/pc/sec3/rule_bg.png)` }}>
-              <p className={styles.ruleTit}>参与方式</p>
+              <p className={styles.ruleTit}>參與方式</p>
               {
                 curRule.join.map((item, index) => {
                   return <p key={index} className={styles.ruleDetail}>{item}</p>
                 })
               }
-              <p className={styles.ruleTit}>注意事项</p>
+              <p className={styles.ruleTit}>注意事項</p>
               {
                 curRule.care.map((item, index) => {
                   return <p key={index} className={styles.ruleDetail}>{item}</p>
