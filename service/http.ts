@@ -16,6 +16,7 @@ http.interceptors.response.use(response => {
     return response
   } else if (response.data.status === 5100) {
     window.localStorage.clear()
+    window.sessionStorage.clear()
     window.location.reload()
     return Promise.reject("登錄信息過期")
   }

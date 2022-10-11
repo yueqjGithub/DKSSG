@@ -97,7 +97,7 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
       router.push('/mobile')
     }
     initUserId()
-  })
+  }, [])
   // 登录
   const loginHandler = async () => {
     const shareFrom = window.localStorage.getItem('shareFrom')
@@ -139,7 +139,7 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
       })
       return _res
     } catch (e) {
-      alert("查詢兌換碼失敗")
+      alert(e || (e as Error).message)
     }
   }
   // 获取已有兑换码
