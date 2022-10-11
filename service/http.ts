@@ -15,9 +15,9 @@ http.interceptors.response.use(response => {
   if (response.data.status === 0) {
     return response
   } else if (response.data.status === 5100) {
-    window.localStorage.removeItem('token')
-    window.localStorage.removeItem('uid')
+    window.localStorage.clear()
     window.location.reload()
+    return Promise.reject("登錄信息過期")
   }
   return Promise.reject(response.data)
 })
