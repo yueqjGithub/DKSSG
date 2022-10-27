@@ -99,7 +99,7 @@ const SectionOne = ({ count, showReserve, loginHandler, downBtnList, video, down
             </>
           )
         }
-        <img src={`${imgPrefix}/mobileImg/store.png`} alt="" onClick={() => {
+        <img src={`${imgPrefix}/mobileImg/${showReserve ? 'store' : 'storeWithoutRes'}.png`} alt="" onClick={() => {
           if (downLink) {
             window.open(downLink)
           }
