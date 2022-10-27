@@ -21,6 +21,7 @@ const  urls = {
   getGameRoles: '/api/fixed/dkRoles/DK',
   // mobile
   getMTopInfo: '/api/fixed/DK/mobile_top_logo',
+  mLink: '/api/fixed/DK/mobile_downlink',
   // user
   login: '/user/login',
   getReserveCount: '/user/reserve/number',

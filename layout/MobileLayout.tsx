@@ -15,9 +15,11 @@ type Props = {
   reserveHandler: Function
   openPrize: Function
   shareLink: FixedContentItem<FixedTypeEnum.IMAGES>['content']
+  downBtnList: FixedContentItem<FixedTypeEnum.IMAGES>['content']
+  downLink?: string
 }
 
-const MobileLayout = ({ children, topData, showReserve, reserveHandler, shareLink, openPrize }: Props) => {
+const MobileLayout = ({ children, topData, showReserve, reserveHandler, shareLink, openPrize, downBtnList, downLink }: Props) => {
   const { state, dispatch } = useContext(Context)
   const { isLogin, codes, imgPrefix, frontBaseUrl } = state
   const [expand, setExpand] = useState<boolean>(false)
@@ -105,14 +107,26 @@ const MobileLayout = ({ children, topData, showReserve, reserveHandler, shareLin
             </div>
           </div>
           {/* 右边 */}
-          <div className={`${styles.rightSide} flex-row flex-nowrap flex-jst-end flex-ali-center`} style={topComputed}>
-            {
-              isLogin && <img src={`${imgPrefix}/mobileImg/logout.png`} alt="" className='click-scale flex-1' onClick={() => logoutHandler()}/>
-            }
-            {
-              !alreadyReserve && <img src={`${imgPrefix}/mobileImg/reserve.png`} alt="" className='click-scale flex-1' onClick={() => reserveHandler()}/>
-            }
-          </div>
+          {
+            showReserve ? (
+              <div className={`${styles.rightSide} flex-row flex-nowrap flex-jst-end flex-ali-center`} style={topComputed}>
+                {
+                  isLogin && <img src={`${imgPrefix}/mobileImg/logout.png`} alt="" className='click-scale flex-1' onClick={() => logoutHandler()}/>
+                }
+                {
+                  !alreadyReserve && <img src={`${imgPrefix}/mobileImg/reserve.png`} alt="" className='click-scale flex-1' onClick={() => reserveHandler()}/>
+                }
+              </div>
+            ) : (
+              <div className={`${styles.rightSide} flex-row flex-nowrap flex-jst-end flex-ali-center`} style={topComputed}>
+                <img src={`${imgPrefix}/mobileImg/topDownload.png`} alt="" className='click-scale flex-1' onClick={() => {
+                  if (downLink) {
+                    window.open(downLink)
+                  }
+                }}/>
+              </div>
+            )
+          }
         </div>
         {/* slide */}
         <div className={styles.slideRight} style={{ right: expand ? '0' : '-30vw' }}>
@@ -131,13 +145,9 @@ const MobileLayout = ({ children, topData, showReserve, reserveHandler, shareLin
                 )
               })
             }
-            {
-              showReserve && (
-                <div className={`${styles.shareLinkIcon} click-scale`}  onClick={() => openPrize()}>
-                  <img src={`${imgPrefix}/mobileImg/prizeQ.png`} alt='' style={{ width: '100%', height: 'auto' }}></img>
-                </div>
-              )
-            }
+            <div className={`${styles.shareLinkIcon} click-scale`}  onClick={() => openPrize()}>
+              <img src={`${imgPrefix}/mobileImg/prizeQ.png`} alt='' style={{ width: '100%', height: 'auto' }}></img>
+            </div>
           </div>
         </div>
         {children}

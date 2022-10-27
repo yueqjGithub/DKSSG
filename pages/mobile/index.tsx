@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from "next"
 import Script from "next/script"
-import { useContext, useState, useEffect, useRef } from "react";
+import { useContext, useState, useEffect, useRef, useMemo } from "react";
 import PrizeModal from "../../components/mobile/prizeModal";
 import MobileLayout from "../../layout/MobileLayout"
 import { httpGet, httpPost } from "../../service/http";
@@ -25,6 +25,7 @@ type Props = {
   showReserve: boolean
   shareLink: FixedContentItem<FixedTypeEnum.IMAGES>['content']
   downBtnList: FixedContentItem<FixedTypeEnum.IMAGES>['content']
+  downLinks: FixedContentItem<FixedTypeEnum.TEXT>['content']
   videoSource: {
     [key: string]: FixedContentItem<FixedTypeEnum.VIDEO>['content']
   }
@@ -37,7 +38,21 @@ type Props = {
   banners: FixedContentItem<FixedTypeEnum.IMAGES>
 }
 
-const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnList, reserves, fbAndInvite, banners, roleList, videoSource }) => {
+const MobileHome: NextPage<Props> = ({ topData, downLinks, showReserve, shareLink, downBtnList, reserves, fbAndInvite, banners, roleList, videoSource }) => {
+  const [sysType, setSys] = useState<'android' | 'ios'>('ios')
+  useEffect(() => {
+    const u = navigator.userAgent;
+    const isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+    const isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    if (isAndroid) {
+      setSys('android')
+    } else if (isiOS) {
+      setSys('ios')
+    }
+  }, [])
+  const downLink = useMemo(() => {
+    return downLinks?.find(item => item.data === sysType)?.link
+  }, [downLinks, sysType])
   const { state, dispatch } = useContext(Context)
   const { imgPrefix, showDialog, sharePrefix, frontBaseUrl } = state
   const touchRef = useRef<any>()
@@ -233,6 +248,8 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
       reserveHandler={getCode}
       shareLink={shareLink}
       openPrize={queryPrize}
+      downBtnList={downBtnList} 
+      downLink={downLink}
     >
       <>
         {
@@ -245,7 +262,7 @@ const MobileHome: NextPage<Props> = ({ topData, showReserve, shareLink, downBtnL
           showPrize && <PrizeModal closeHandler={() => setShowPrize(false)}></PrizeModal>
         }
         <div ref={touchRef} className={styles.pageContainer}>
-          <SectionOne count={count} showReserve={showReserve} downBtnList={downBtnList} loginHandler={getCode} video={videoSource.video[0]}></SectionOne>
+          <SectionOne count={count} showReserve={showReserve} downLink={downLink} downBtnList={downBtnList} loginHandler={getCode} video={videoSource.video[0]}></SectionOne>
           {
             showReserve && (
               <>
@@ -294,6 +311,8 @@ export const getStaticProps: GetStaticProps = async () => {
   const { data: topInfo } = await httpGet(urls.getMTopInfo)
   const { data: attrData } = await httpGet(urls.getAttr)
   const { data: downsData } = await httpGet(urls.downBtn)
+  const { data: mLink } = await httpGet(urls.mLink)
+  const downLinks: FixedContentItem<FixedTypeEnum.TEXT> = getTarget('text', mLink.data)
   const downBtnList: FixedContentItem<FixedTypeEnum.IMAGES> = getTarget('images', downsData.data)
   const shareList: FixedContentItem<FixedTypeEnum.IMAGES> = getTarget('images', shares.data)
   const showReserve = attrData.data.find((item: any) => item.code === 'showReserve').val === 'true'
@@ -385,6 +404,7 @@ export const getStaticProps: GetStaticProps = async () => {
       props: {
         shareLink: shareList.content,
         downBtnList: downBtnList.content,
+        downLinks: downLinks.content,
         topData,
         banners: bannerList,
         roleList,
@@ -399,6 +419,7 @@ export const getStaticProps: GetStaticProps = async () => {
       props: {
         shareLink: shareList.content,
         downBtnList: downBtnList.content,
+        downLinks: downLinks.content,
         topData,
         banners: bannerList,
         roleList,

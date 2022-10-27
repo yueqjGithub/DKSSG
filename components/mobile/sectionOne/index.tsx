@@ -10,6 +10,7 @@ type Props = {
   video: {
     data: string
   }
+  downLink?: string
 }
 
 type VideoPx = {
@@ -17,12 +18,9 @@ type VideoPx = {
   height: number
 }
 
-const SectionOne = ({ count, showReserve, loginHandler, downBtnList, video }: Props) => {
+const SectionOne = ({ count, showReserve, loginHandler, downBtnList, video, downLink }: Props) => {
   const { state, dispatch } = useContext(Context)
   const { isLogin, codes, imgPrefix } = state
-  const storeLink = useMemo(() => {
-    return downBtnList?.pop()?.link
-  }, [downBtnList])
   const alreadyReserve = useMemo(() => {
     return codes?.find(item => item.codeType === 'RESERVE') !== undefined
   }, [codes])
@@ -102,8 +100,8 @@ const SectionOne = ({ count, showReserve, loginHandler, downBtnList, video }: Pr
           )
         }
         <img src={`${imgPrefix}/mobileImg/store.png`} alt="" onClick={() => {
-          if (storeLink) {
-            window.open(storeLink)
+          if (downLink) {
+            window.open(downLink)
           }
         }}/>
       </div>

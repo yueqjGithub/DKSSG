@@ -113,7 +113,8 @@ const PcLayout = ({ children, shareLink, downBtnList, qrcode, showReserve, openP
                         ) : (
                           <>
                             {
-                              showReserve && <img src={item.data} style={{ width: '100%', height: 'auto' }} alt={item.link} onClick={() => openPrize()}></img>
+                              // showReserve && <img src={item.data} style={{ width: '100%', height: 'auto' }} alt={item.link} onClick={() => openPrize()}></img>
+                              <img src={item.data} style={{ width: '100%', height: 'auto' }} alt={item.link} onClick={() => openPrize()}></img>
                             }
                           </>
                         )
