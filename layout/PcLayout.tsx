@@ -11,9 +11,10 @@ type Props = {
   qrcode: FixedContentItem<FixedTypeEnum.IMAGES>['content'][0]
   showReserve: boolean
   openPrize: Function
+  isGrey?: boolean
 }
 
-const PcLayout = ({ children, shareLink, downBtnList, qrcode, showReserve, openPrize }: Props) => {
+const PcLayout = ({ isGrey, children, shareLink, downBtnList, qrcode, showReserve, openPrize }: Props) => {
   const { state, dispatch } = useContext(Context)
   const { isLogin, imgPrefix } = state
   const { sideExpand, currentScreen, sideTab, frontBaseUrl } = state
@@ -84,7 +85,7 @@ const PcLayout = ({ children, shareLink, downBtnList, qrcode, showReserve, openP
       <Head>
         <title>魔爾街之王-DungeonOverlord-要素過多的Roguelike塔防手游</title>
       </Head>
-      <div className="page-pc-container">
+      <div className="page-pc-container" style={{ filter: isGrey ? 'grayscale(1)' : '' }}>
         {children}
         {/* 左侧slider */}
         <div className={`flex-row flex-jst-start flex-ali-start ${styles.sideShareContainer}`} style={{ left: sideExpand ? '0' : '-1.36rem' }}>

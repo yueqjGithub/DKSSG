@@ -36,9 +36,10 @@ type Props = {
   }
   roleList: any[]
   banners: FixedContentItem<FixedTypeEnum.IMAGES>
+  isGrey?: boolean
 }
 
-const MobileHome: NextPage<Props> = ({ topData, downLinks, showReserve, shareLink, downBtnList, reserves, fbAndInvite, banners, roleList, videoSource }) => {
+const MobileHome: NextPage<Props> = ({ isGrey, topData, downLinks, showReserve, shareLink, downBtnList, reserves, fbAndInvite, banners, roleList, videoSource }) => {
   const [sysType, setSys] = useState<'android' | 'ios'>('ios')
   useEffect(() => {
     const u = navigator.userAgent;
@@ -250,6 +251,7 @@ const MobileHome: NextPage<Props> = ({ topData, downLinks, showReserve, shareLin
       openPrize={queryPrize}
       downBtnList={downBtnList} 
       downLink={downLink}
+      isGrey={isGrey}
     >
       <>
         {
@@ -316,6 +318,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const downBtnList: FixedContentItem<FixedTypeEnum.IMAGES> = getTarget('images', downsData.data)
   const shareList: FixedContentItem<FixedTypeEnum.IMAGES> = getTarget('images', shares.data)
   const showReserve = attrData.data.find((item: any) => item.code === 'showReserve').val === 'true'
+  const isGrey = attrData.data.find((item: any) => item.code === 'isgrey').val === 'true'
   const topData: {
     images: FixedContentItem<FixedTypeEnum.IMAGES>['content'],
     text: FixedContentItem<FixedTypeEnum.TEXT>['content']
@@ -411,7 +414,8 @@ export const getStaticProps: GetStaticProps = async () => {
         videoSource: videoResult,
         showReserve,
         reserves,
-        fbAndInvite
+        fbAndInvite,
+        isGrey
       }
     }
   } else {
@@ -424,7 +428,8 @@ export const getStaticProps: GetStaticProps = async () => {
         banners: bannerList,
         roleList,
         videoSource: videoResult,
-        showReserve
+        showReserve,
+        isGrey
       }
     }
   }

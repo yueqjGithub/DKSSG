@@ -33,9 +33,10 @@ type Props = {
   }
   banners: FixedContentItem<FixedTypeEnum.IMAGES>
   roleList: any[]
+  isGrey?: boolean
 }
 
-const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReserve, videoSource, reserves, fbAndInvite, banners, roleList }) => {
+const PcHome: NextPage<Props> = ({ isGrey, shareLink, downBtnList, qrcodeList, showReserve, videoSource, reserves, fbAndInvite, banners, roleList }) => {
   const { state, dispatch } = useContext(Context)
   const contRef = useRef<any>()
   const { currentScreen, sideTab, imgPrefix, denyScroll, showDialog, sharePrefix, frontBaseUrl } = state
@@ -250,6 +251,7 @@ const PcHome: NextPage<Props> = ({ shareLink, downBtnList, qrcodeList, showReser
       qrcode={qrcodeList[0]}
       showReserve={showReserve}
       openPrize={queryPrize}
+      isGrey={isGrey}
     >
       <>
         {
@@ -317,6 +319,7 @@ export const getStaticProps: GetStaticProps = async () => {
   })
   const bannerList: FixedContentItem<FixedTypeEnum.IMAGES> = getTarget('images', bannerData.data)
   const showReserve = attrData.data.find((item: any) => item.code === 'showReserve').val === 'true'
+  const isGrey = attrData.data.find((item: any) => item.code === 'isgrey').val === 'true'
   if (showReserve) {
     // 第二屏接口
     const { data: reserveOne } = await httpGet(urls.getReserveOne)
@@ -380,6 +383,7 @@ export const getStaticProps: GetStaticProps = async () => {
     }
     return {
       props: {
+        isGrey,
         shareLink: shareList.content,
         downBtnList: downBtnList.content,
         qrcodeList: qrcodeInfo.content,
@@ -394,6 +398,7 @@ export const getStaticProps: GetStaticProps = async () => {
   } else {
     return {
       props: {
+        isGrey,
         shareLink: shareList.content,
         downBtnList: downBtnList.content,
         qrcodeList: qrcodeInfo.content,

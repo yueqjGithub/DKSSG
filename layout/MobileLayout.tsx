@@ -17,9 +17,10 @@ type Props = {
   shareLink: FixedContentItem<FixedTypeEnum.IMAGES>['content']
   downBtnList: FixedContentItem<FixedTypeEnum.IMAGES>['content']
   downLink?: string
+  isGrey?: boolean
 }
 
-const MobileLayout = ({ children, topData, showReserve, reserveHandler, shareLink, openPrize, downBtnList, downLink }: Props) => {
+const MobileLayout = ({ isGrey, children, topData, showReserve, reserveHandler, shareLink, openPrize, downBtnList, downLink }: Props) => {
   const { state, dispatch } = useContext(Context)
   const { isLogin, codes, imgPrefix, frontBaseUrl } = state
   const [expand, setExpand] = useState<boolean>(false)
@@ -96,7 +97,7 @@ const MobileLayout = ({ children, topData, showReserve, reserveHandler, shareLin
       <Head>
         <title>魔爾街之王-DungeonOverlord-要素過多的Roguelike塔防手游</title>
       </Head>
-      <div className='m-page-container'>
+      <div className='m-page-container' style={{ filter: isGrey ? 'grayscale(1)' : '' }}>
         {/* header */}
         <div className={`${styles.headerContainer} flex-row flex-jst-btw flex-ali-center`}>
           <div className={`${styles.leftSide} flex-row flex-jst-start flex-ali-center`}>
